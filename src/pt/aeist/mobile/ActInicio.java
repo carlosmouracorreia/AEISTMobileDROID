@@ -6,7 +6,14 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.FragmentTransaction;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.view.ViewPager;
 
 
@@ -53,8 +60,40 @@ public class ActInicio extends ActionBarActivity implements
 	            @Override
 	            public void onPageScrollStateChanged(int arg0) {
 	            }
-	        });
-	    }
+	        });     
+	}
+		 
+	    public void openDialog() {
+	    	 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+      				this);
+       
+      			// set title
+      			alertDialogBuilder.setTitle(R.string.app_name);
+       
+      			// set dialog message
+      			alertDialogBuilder
+      				.setMessage(R.string.dialogo_net)
+      				.setCancelable(false)
+      				.setPositiveButton("Sair",new DialogInterface.OnClickListener() {
+      					public void onClick(DialogInterface dialog,int id) {
+      						ActInicio.this.finish();
+      					}
+      				  })
+      				.setNegativeButton("Definições",new DialogInterface.OnClickListener() {
+      					public void onClick(DialogInterface dialog,int id) {
+      						Intent intent = new Intent(Settings.ACTION_SETTINGS);
+      			            intent.addCategory(Intent.CATEGORY_LAUNCHER);           
+      			            startActivity(intent);
+      					}
+      				});
+       
+      				AlertDialog alertDialog = alertDialogBuilder.create();
+       
+      				alertDialog.show();
+      			}
+	    
+	
+	
 	 
 	    @Override
 	    public void onTabReselected(Tab tab, FragmentTransaction ft) {
@@ -71,6 +110,16 @@ public class ActInicio extends ActionBarActivity implements
 	    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 	    }
 
-	
+	    protected void onResume()
+	    {
+	       super.onResume();
+	       ConnectivityManager cm =
+	                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	             NetworkInfo netInfo = cm.getActiveNetworkInfo();
+	       if (netInfo == null || !netInfo.isConnectedOrConnecting()) {
+	    	  openDialog();
+           }
+	       
+	    }
 
 }

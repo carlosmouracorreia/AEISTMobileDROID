@@ -4,7 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+
 public class Splash extends Activity {
+	
+	
+	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);     
@@ -15,11 +19,11 @@ public class Splash extends Activity {
             public void run(){
                 try{
                     int logoTimer = 0;
-                    while(logoTimer < 3000){
+                    while(logoTimer < 2000){
                         sleep(100);
                         logoTimer = logoTimer +100;
                     };
-                    startActivity(new Intent("pt.aeist.mobile.START"));
+                   startActivity(new Intent("pt.aeist.mobile.START"));
                 } 
                  
                 catch (InterruptedException e) {
@@ -35,4 +39,6 @@ public class Splash extends Activity {
          
         logoTimer.start();
 }
+	
+	
 }
