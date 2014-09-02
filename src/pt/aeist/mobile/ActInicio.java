@@ -117,7 +117,7 @@ public class ActInicio extends ActionBarActivity implements
 	                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 	             NetworkInfo netInfo = cm.getActiveNetworkInfo();
 	       if (netInfo == null || !netInfo.isConnectedOrConnecting()) {
-	    	  openDialog();
+	    	  //openDialog();
            }
 	       
 	    }
