@@ -63,37 +63,6 @@ public class ActInicio extends ActionBarActivity implements
 	        });     
 	}
 		 
-	    public void openDialog() {
-	    	 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-      				this);
-       
-      			// set title
-      			alertDialogBuilder.setTitle(R.string.app_name);
-       
-      			// set dialog message
-      			alertDialogBuilder
-      				.setMessage(R.string.dialogo_net)
-      				.setCancelable(false)
-      				.setPositiveButton("Sair",new DialogInterface.OnClickListener() {
-      					public void onClick(DialogInterface dialog,int id) {
-      						ActInicio.this.finish();
-      					}
-      				  })
-      				.setNegativeButton("Definições",new DialogInterface.OnClickListener() {
-      					public void onClick(DialogInterface dialog,int id) {
-      						Intent intent = new Intent(Settings.ACTION_SETTINGS);
-      			            intent.addCategory(Intent.CATEGORY_LAUNCHER);           
-      			            startActivity(intent);
-      					}
-      				});
-       
-      				AlertDialog alertDialog = alertDialogBuilder.create();
-       
-      				alertDialog.show();
-      			}
-	    
-	
-	
 	 
 	    @Override
 	    public void onTabReselected(Tab tab, FragmentTransaction ft) {
@@ -113,12 +82,6 @@ public class ActInicio extends ActionBarActivity implements
 	    protected void onResume()
 	    {
 	       super.onResume();
-	       ConnectivityManager cm =
-	                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-	             NetworkInfo netInfo = cm.getActiveNetworkInfo();
-	       if (netInfo == null || !netInfo.isConnectedOrConnecting()) {
-	    	  //openDialog();
-           }
 	       
 	    }
 
