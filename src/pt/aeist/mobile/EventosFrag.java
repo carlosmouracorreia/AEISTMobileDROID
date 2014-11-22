@@ -44,6 +44,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 
+
 public class EventosFrag extends Fragment {
 	
 	public class eventoContainer {
@@ -169,9 +170,10 @@ public class EventosFrag extends Fragment {
 	    							long arg3) {
 	    						
 	    						eventoContainer chapter = eventosListAdapter.getEventoNr(arg2);
-	    						Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(chapter.eventoLink));
-	    						startActivity(browserIntent);
-	    						
+	    						if(chapter.eventoLink.contains("http://")) {
+	    							Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(chapter.eventoLink));
+	    							startActivity(browserIntent);
+	    						}
 	    					}
 	    				});
 	    	  }
