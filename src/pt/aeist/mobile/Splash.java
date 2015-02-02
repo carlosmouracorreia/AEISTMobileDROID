@@ -1,55 +1,21 @@
 package pt.aeist.mobile;
 
+import pt.aeist.mobile.res.AppController;
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.Settings;
 
 
+@SuppressLint("HandlerLeak")
 public class Splash extends Activity {
-	
-	 public void openDialog() {
-    	 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-  				this);
-   
-  			// set title
-  			alertDialogBuilder.setTitle(R.string.app_name);
-   
-  			// set dialog message
-  			alertDialogBuilder
-  				.setMessage(R.string.dialogo_net)
-  				.setCancelable(false)
-  				.setPositiveButton("Sair",new DialogInterface.OnClickListener() {
-  					public void onClick(DialogInterface dialog,int id) {
-  						Splash.this.finish();
-  					}
-  				  })
-  				.setNegativeButton("Definições",new DialogInterface.OnClickListener() {
-  		            public void onClick(DialogInterface dialog,int id) {
-  		                Intent intent = new Intent(Settings.ACTION_SETTINGS);
-  		                intent.addCategory(Intent.CATEGORY_LAUNCHER);           
-  		                startActivity(intent);
-  		                finish();
-  		            }
-  		        });
-  				
-  				AlertDialog alertDialog = alertDialogBuilder.create();
-   
-  				alertDialog.show();
-  			}
-	
 	 Handler mHandler = new Handler()
 	 {
 	     public void handleMessage(Message msg)
 	     {
-	        openDialog();//Display Alert
+	    	 AppController.getInstance().openDialog(Splash.this);
 	     }
 	 };
 	
@@ -63,11 +29,7 @@ public class Splash extends Activity {
             public void run(){
                 try{
                 	 sleep(2000);
-                     ConnectivityManager cm =
-                         (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                     NetworkInfo netInfo = cm.getActiveNetworkInfo();
-
-                     if (netInfo == null || !netInfo.isConnectedOrConnecting()) 
+                     if (!AppController.getInstance().networkStatus(getBaseContext())) 
                     {               
                          mHandler.sendEmptyMessage(0);
                     } else 

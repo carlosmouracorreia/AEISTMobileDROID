@@ -1,8 +1,10 @@
-package pt.aeist.mobile;
+package pt.aeist.mobile.res;
 
-import pt.aeist.mobile.EventosFrag;
+
 //import pt.aeist.mobile.EmentasFrag;
+import pt.aeist.mobile.EmentasFrag;
 import pt.aeist.mobile.UtilFrag;
+import pt.aeist.mobile.eventos.EventosFrag;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -16,10 +18,10 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
         switch (index) {
         case 0:
             // Top Rated fragment activity
-            return new EventosFrag();
+        	return new EventosFrag();
         case 1:
             // Games fragment activity
-            //return new EmentasFrag();
+            return new EmentasFrag();
         case 2:
             // Movies fragment activity
             return new UtilFrag();

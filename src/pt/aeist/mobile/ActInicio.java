@@ -2,18 +2,13 @@ package pt.aeist.mobile;
 
 
 
+import pt.aeist.mobile.res.AppController;
+import pt.aeist.mobile.res.TabsPagerAdapter;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.FragmentTransaction;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.view.ViewPager;
 
 
@@ -23,14 +18,12 @@ public class ActInicio extends ActionBarActivity implements
 	private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
-	
 	private String[] tabs = { "Eventos", "Ementas", "Útil" };
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_act_inicio);
-		
 		//inicializacao
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getSupportActionBar();
@@ -82,6 +75,9 @@ public class ActInicio extends ActionBarActivity implements
 	    protected void onResume()
 	    {
 	       super.onResume();
+	       if (!AppController.getInstance().networkStatus(getBaseContext()))  {               
+		    	 AppController.getInstance().openDialog(ActInicio.this);
+}
 	       
 	    }
 
