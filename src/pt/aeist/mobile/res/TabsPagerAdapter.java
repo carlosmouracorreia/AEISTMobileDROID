@@ -2,8 +2,9 @@ package pt.aeist.mobile.res;
 
 
 //import pt.aeist.mobile.EmentasFrag;
-import pt.aeist.mobile.EmentasFrag;
-import pt.aeist.mobile.UtilFrag;
+
+import pt.aeist.mobile.info.AeistFrag;
+import pt.aeist.mobile.ServFrag;
 import pt.aeist.mobile.eventos.EventosFrag;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,10 +22,10 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
         	return new EventosFrag();
         case 1:
             // Games fragment activity
-            return new EmentasFrag();
+            return new ServFrag();
         case 2:
             // Movies fragment activity
-            return new UtilFrag();
+            return new AeistFrag();
         }
  
         return null;

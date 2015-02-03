@@ -18,7 +18,7 @@ public class ActInicio extends ActionBarActivity implements
 	private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
-	private String[] tabs = { "Eventos", "Ementas", "Útil" };
+	private String[] tabs = { "Eventos", "Serviços/Horários", "A AEIST" };
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
