@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="5dp" >
+
+    <ImageView
+        android:id="@+id/pic"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:layout_marginRight="3dp"
+        android:src="@drawable/entrada"
+        tools:ignore="ContentDescription" />
+    
+    <ImageView
+        android:id="@+id/pic2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/pic"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="3dp"
+        android:src="@drawable/centenario"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/pic"
+        android:layout_toLeftOf="@+id/pic"
+        android:layout_alignParentLeft="true"
+        android:text="Quem Somos? (:"
+        android:textColor="#040404"
+        android:textSize="15sp"
+        android:textStyle="bold|italic"
+        android:typeface="sans"
+        tools:ignore="HardcodedText" />
+
+  
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginRight="3dip"
+        android:layout_toLeftOf="@+id/pic"
+        android:gravity="left"
+        android:text="A AEIST está dividida em vários pelouros para que nos possamos especializar/dividir nas várias àreas a que estão ligados os alunos desta instituição. Confere aqui a Direcção completa de 2014/15, bem como te podem ajudar no teu percurso no IST."
+        android:textColor="#000000"
+        tools:ignore="HardcodedText" />
+
+     <TextView
+         android:id="@+id/title2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/info"
+         android:text="(Clica no pelouro para expandir)"
+         android:textColor="#040404"
+         android:textSize="11sp"
+         android:textStyle="bold|italic"
+         android:typeface="sans"
+         tools:ignore="HardcodedText" />
+ 
+</RelativeLayout>
