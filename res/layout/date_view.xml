@@ -15,15 +15,13 @@
         android:layout_alignParentLeft="true"
         android:layout_gravity="center"
         android:layout_marginRight="3dp"
-        android:src="@drawable/ic_action_web_site" 
+        android:src="@drawable/ic_action_go_to_today" 
         />
     <TextView
-        android:id="@+id/link"
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/pic"
-        android:text="Visitar Página"
-        android:textStyle="bold"
         android:textColor="#000000"
         android:textSize="17dp" />
  </RelativeLayout>

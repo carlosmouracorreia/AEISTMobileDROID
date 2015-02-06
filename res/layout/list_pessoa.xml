@@ -1,6 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:padding="5dp"
+     >
 
 <LinearLayout
     android:layout_width="0dp"
@@ -14,9 +16,7 @@
         android:id="@+id/thumbnail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
-         />
+        android:adjustViewBounds="true" />
 </LinearLayout>
 
     <LinearLayout
@@ -40,6 +40,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toque para enviar email"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
     </LinearLayout>

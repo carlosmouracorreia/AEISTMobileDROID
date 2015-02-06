@@ -1,13 +1,42 @@
 package pt.aeist.mobile.eventos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EventoContainer {
 	private String eventoNome;
 	private String eventoDesc;
 	private String eventoLink;
 	private String imageLink;
+	private List<String> more;
+	private String date;
+	
+	public EventoContainer() {
+		more = new ArrayList<String>();
+	}
 	/**
 	 * @return the eventoNome
 	 */
+	public void addMisc(String a) {
+		more.add(a);
+	}
+	
+	public List<String> getMisc() {
+		return more;
+	}
+	
+	public String getDate() {
+		return date;
+	}
+	
+	public void setDate(String _date) {
+		date = _date;
+	}
+	
+	public String getMisc(int arg0) {
+		return more.get(arg0);
+	}
+	
 	public String getEventoNome() {
 		return eventoNome;
 	}
