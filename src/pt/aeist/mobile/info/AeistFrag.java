@@ -27,6 +27,7 @@ public class AeistFrag extends Fragment {
 	private List<PelouroContainer> pelouroList;
 	private ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 	
+	
 	public class PelAdapter extends BaseExpandableListAdapter {
 
 		@Override
@@ -253,7 +254,7 @@ public class AeistFrag extends Fragment {
 	       ExpandableListView listaPelouros = (ExpandableListView)rootView.findViewById(R.id.listView2);
 	       ViewGroup header = (ViewGroup) inflater.inflate(R.layout.header_aeist, listaPelouros,
                    false);
-       	 listaPelouros.addHeaderView(header, null, false);
+       	   listaPelouros.addHeaderView(header, null, false);
 	       listaPelouros.setAdapter(pelListAdapter);
 	       listaPelouros.setOnChildClickListener(new OnChildClickListener() {
         		 

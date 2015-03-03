@@ -28,7 +28,7 @@ public class Splash extends Activity {
         Thread logoTimer = new Thread() {
             public void run(){
                 try{
-                	 sleep(2000);
+                	 sleep(1000);
                      if (!AppController.getInstance().networkStatus(getBaseContext())) 
                     {               
                          mHandler.sendEmptyMessage(0);
