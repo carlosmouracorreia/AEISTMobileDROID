@@ -65,7 +65,7 @@ import com.android.volley.toolbox.NetworkImageView;
 					 
 			            convertView = infalInflater.inflate(R.layout.link_view, null);
 			            TextView textView = (TextView) convertView.findViewById(R.id.link);
-			            SpannableString content = new SpannableString("Visitar Página");
+			            SpannableString content = new SpannableString("Visitar PÃ¡gina");
 			            content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
 			            textView.setText(content);
 			            return convertView;

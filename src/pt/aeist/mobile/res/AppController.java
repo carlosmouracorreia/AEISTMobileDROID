@@ -110,7 +110,7 @@ public class AppController extends Application {
    						_a.finish();
    					}
    				  })
-   				.setNegativeButton("Definições",new DialogInterface.OnClickListener() {
+   				.setNegativeButton("DefiniÃ§Ãµes",new DialogInterface.OnClickListener() {
    		            public void onClick(DialogInterface dialog,int id) {
    		                Intent intent = new Intent(Settings.ACTION_SETTINGS);
    		                intent.addCategory(Intent.CATEGORY_LAUNCHER);           
