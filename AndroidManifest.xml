@@ -9,7 +9,7 @@
 
     <uses-sdk
         android:minSdkVersion="7"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="21" />
 
     <application
         android:name="pt.aeist.mobile.res.AppController"
