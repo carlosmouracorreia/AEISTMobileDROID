@@ -22,7 +22,7 @@ public class AEFrag extends Fragment {
 	        
 	        mTabHost.setup(getActivity(), getChildFragmentManager(), android.R.id.tabcontent);
 
-	        mTabHost.addTab(mTabHost.newTabSpec("fragmentb").setIndicator("DirecÃ§Ã£o"),
+	        mTabHost.addTab(mTabHost.newTabSpec("fragmentb").setIndicator("Direcção"),
 	                AeistFrag.class, null);
 	        mTabHost.addTab(mTabHost.newTabSpec("fragmentc").setIndicator("C.Fiscal"),
 	                FiscalFrag.class, null);

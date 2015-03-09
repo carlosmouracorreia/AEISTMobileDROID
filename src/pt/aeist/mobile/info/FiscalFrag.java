@@ -166,8 +166,8 @@ public class FiscalFrag extends Fragment {
 	        
 	        PelouroContainer p1 = new PelouroContainer("Conselho Fiscal");
 	        p1.addPessoa(new Pessoa("Pedro Sereno","Presidente","http://mobile.aeist.pt/dAEISTpics/pres/sereno.jpg","pedro.sereno@aeist.pt"));
-	        p1.addPessoa(new Pessoa("Marco Gomes","Vice-Presidente da AdministraÃ§Ã£o Financeira","http://mobile.aeist.pt/dAEISTpics/pres/marco.jpg","marco.gomes@aeist.pt"));
-	        p1.addPessoa(new Pessoa("Maria de Almeida","Vice-Presidente da GestÃ£o","http://mobile.aeist.pt/dAEISTpics/pres/maria.jpg","maria.almeida@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Marco Gomes","Vice-Presidente da Administração Financeira","http://mobile.aeist.pt/dAEISTpics/pres/marco.jpg","marco.gomes@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Maria de Almeida","Vice-Presidente da Gestão","http://mobile.aeist.pt/dAEISTpics/pres/maria.jpg","maria.almeida@aeist.pt"));
 	        pelouroList.add(p1);
 	        
 	        
