@@ -13,8 +13,8 @@ public class ImageAdapter extends BaseAdapter {
 	private Context mContext;
 	
     public Integer[] mThumbIds = {
-            R.drawable.arraial0, R.drawable.arraial1,
-            R.drawable.arraial2, 
+            R.drawable.desportiva, R.drawable.recreativa,
+            R.drawable.sf, 
     };
  
     public ImageAdapter(Context c){

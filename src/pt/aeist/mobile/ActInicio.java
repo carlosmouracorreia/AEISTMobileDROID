@@ -27,6 +27,11 @@ public class ActInicio extends ActionBarActivity implements
 		//inicializacao
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getSupportActionBar();
+		
+		getSupportActionBar().setDisplayShowHomeEnabled(true);
+		getSupportActionBar().setLogo(R.drawable.ic_launcher);
+		getSupportActionBar().setDisplayUseLogoEnabled(true);
+		
 		mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(mAdapter);
 		actionBar.setHomeButtonEnabled(false);
