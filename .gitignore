@@ -2,6 +2,7 @@
 Thumbs.db
 ehthumbs.db
 
+linuxcmds.txt
 # Folder config file
 Desktop.ini
 
@@ -26,7 +27,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*

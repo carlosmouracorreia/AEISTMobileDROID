@@ -4,6 +4,8 @@ package pt.aeist.mobile;
 
 import pt.aeist.mobile.res.AppController;
 import pt.aeist.mobile.res.TabsPagerAdapter;
+import pt.aeist.mobile.servicos.SFFrag;
+import pt.aeist.mobile.servicos.ServFrag;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -19,6 +21,18 @@ public class ActInicio extends ActionBarActivity implements
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
 	private String[] tabs = { "Eventos", "Serviços", "A AEIST" };
+	
+	@Override
+	public void onBackPressed() {
+        if(viewPager.getCurrentItem() == 0) {
+            if (mAdapter.getItem(1) instanceof SFFrag) {
+                ((SFFrag) mAdapter.getItem(1)).backPressed();
+            }
+            else if (mAdapter.getItem(1) instanceof ServFrag) {
+                finish();
+            }
+        }
+    }
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +98,10 @@ public class ActInicio extends ActionBarActivity implements
 		    	 AppController.getInstance().openDialog(ActInicio.this);
 }
 	       
+	    }
+	    
+	    public ViewPager getPager() {
+	    	return viewPager;
 	    }
 
 }
