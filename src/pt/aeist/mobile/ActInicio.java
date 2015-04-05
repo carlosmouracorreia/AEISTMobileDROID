@@ -32,7 +32,7 @@ public class ActInicio extends ActionBarActivity implements
             else if (mAdapter.getItem(1) instanceof DespFrag) {
                 ((DespFrag) mAdapter.getItem(1)).backPressed();
             }
-            else if (mAdapter.getItem(1) instanceof ServFrag) {
+            else {
                 finish();
             }
         }

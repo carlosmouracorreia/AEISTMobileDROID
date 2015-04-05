@@ -1,5 +1,7 @@
 package pt.aeist.mobile.res;
 
+import org.json.JSONArray;
+
 import pt.aeist.mobile.R;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,7 +17,12 @@ import android.text.TextUtils;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 public class AppController extends Application {
@@ -25,6 +32,8 @@ public class AppController extends Application {
 	private RequestQueue mRequestQueue;
 	private ImageLoader mImageLoader;
 	private ProgressDialog pDialog;
+	private boolean efConnected;
+	private static final String url = "http://mobile.aeist.pt/index.html";
 
 	private static AppController mInstance;
 
@@ -92,8 +101,29 @@ public class AppController extends Application {
     	NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
     	boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
+    	//work on this thread
+    	
+   /* 	if(isConnected) {
+    		AppController.getInstance().showpDialog();
+    		StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+    	            new Response.Listener<String>() {
+  	                    @Override
+  	                    public void onResponse(String response) {
+  	                    	efConnected = true;
+  	                    	AppController.getInstance().hidepDialog();
+  	                    }
+    	}
+    		  , new Response.ErrorListener() {
+                  @Override
+                  public void onErrorResponse(VolleyError error) {
+                	  efConnected = false;
+                      AppController.getInstance().hidepDialog();
+                  }
+              });
+      AppController.getInstance().addToRequestQueue(stringRequest);
+    	 } */
     	return isConnected;
-    }
+}
     
     public void openDialog(Context a) {
      	 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(a);
