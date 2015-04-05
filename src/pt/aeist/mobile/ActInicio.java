@@ -112,6 +112,23 @@ public class ActInicio extends ActionBarActivity implements
 	    public void onTabSelected(Tab tab, FragmentTransaction ft) {
 	        // on tab selected
 	        // show respected fragment view
+	    	 Thread logoTimer = new Thread() {
+	               public void run(){
+	            	   
+	            	   int msg = AppController.getInstance().networkStatus(getBaseContext());
+			    	   switch(msg) {
+			    	   case 0:
+			    		   mHandler.sendEmptyMessage(0);
+			    		   break;
+			    	   case 1:
+			    		   mHandler.sendEmptyMessage(1);
+			    		   break;
+			    	   case 2:
+			    		   break;
+			    	   }
+	               }
+	           };
+	           logoTimer.start();
 	        viewPager.setCurrentItem(tab.getPosition());
 	    }
 	 
