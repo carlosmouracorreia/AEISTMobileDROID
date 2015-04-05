@@ -4,6 +4,7 @@ package pt.aeist.mobile;
 
 import pt.aeist.mobile.res.AppController;
 import pt.aeist.mobile.res.TabsPagerAdapter;
+import pt.aeist.mobile.servicos.DespFrag;
 import pt.aeist.mobile.servicos.SFFrag;
 import pt.aeist.mobile.servicos.ServFrag;
 import android.support.v7.app.ActionBar.Tab;
@@ -27,6 +28,9 @@ public class ActInicio extends ActionBarActivity implements
         if(viewPager.getCurrentItem() == 1) {
             if (mAdapter.getItem(1) instanceof SFFrag) {
                 ((SFFrag) mAdapter.getItem(1)).backPressed();
+            }
+            else if (mAdapter.getItem(1) instanceof DespFrag) {
+                ((DespFrag) mAdapter.getItem(1)).backPressed();
             }
             else if (mAdapter.getItem(1) instanceof ServFrag) {
                 finish();

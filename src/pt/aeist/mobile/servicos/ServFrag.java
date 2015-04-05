@@ -5,7 +5,7 @@ import java.util.List;
 
 import pt.aeist.mobile.R;
 import pt.aeist.mobile.eventos.EventosFrag;
-import pt.aeist.mobile.res.FirstPageFragmentListener;
+import pt.aeist.mobile.res.NextFragmentListener;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -22,9 +22,9 @@ public class ServFrag extends Fragment{
 	private List<Servico> servicoList = new ArrayList<Servico>();
 	private ListView listView;
 	private ServListAdapter adapter;
-    static FirstPageFragmentListener firstPageListener;
+    static NextFragmentListener firstPageListener;
 
-    public static ServFrag newInstance(FirstPageFragmentListener listener){
+    public static ServFrag newInstance(NextFragmentListener listener){
         firstPageListener = listener;
         return new ServFrag();
 
@@ -52,13 +52,10 @@ public class ServFrag extends Fragment{
 					int pos, long mylng) {
 				switch (pos) {
 				case 0:
-					
-
-					firstPageListener.onSwitchToNextFragment();
-
+					firstPageListener.onSwitchToNextFragment("sf_frag");
 					break;
 				case 1:
-					Log.d(TAG, "TEST1");
+					firstPageListener.onSwitchToNextFragment("desp_frag");
 					break;
 				}
 			}

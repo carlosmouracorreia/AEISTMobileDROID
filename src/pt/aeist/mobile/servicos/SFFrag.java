@@ -5,7 +5,7 @@ import java.util.List;
 
 import pt.aeist.mobile.R;
 import pt.aeist.mobile.eventos.EventosFrag;
-import pt.aeist.mobile.res.FirstPageFragmentListener;
+import pt.aeist.mobile.res.NextFragmentListener;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -19,10 +19,10 @@ import android.widget.ListView;
 
 public class SFFrag extends Fragment {
 	protected static final String TAG = "Servicos";
-    static FirstPageFragmentListener firstPageListener;
+    static NextFragmentListener firstPageListener;
 
 	
-    public static SFFrag newInstance(FirstPageFragmentListener listener){
+    public static SFFrag newInstance(NextFragmentListener listener){
         firstPageListener = listener;
         return new SFFrag();
 
@@ -41,6 +41,6 @@ public class SFFrag extends Fragment {
 	}
 
 	  public void backPressed() {
-	        firstPageListener.onSwitchToNextFragment();
+	        firstPageListener.onSwitchToNextFragment("root");
 	    }
 }

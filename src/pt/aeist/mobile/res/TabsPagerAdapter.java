@@ -5,6 +5,7 @@ package pt.aeist.mobile.res;
 
 import pt.aeist.mobile.R;
 import pt.aeist.mobile.info.AEFrag;
+import pt.aeist.mobile.servicos.DespFrag;
 import pt.aeist.mobile.servicos.SFFrag;
 import pt.aeist.mobile.servicos.ServFrag;
 import pt.aeist.mobile.eventos.EventosFrag;
@@ -27,7 +28,6 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
  
         switch (index) {
         case 0:
-            // Top Rated fragment activity
         	return new EventosFrag();
         case 1:
         	 if (mFragmentAtPos0 == null)
@@ -36,29 +36,33 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
              }
              return mFragmentAtPos0;
         case 2:
-            // Movies fragment activity
             return new AEFrag();
         }
  
         return null;
     }
 	
-	 private final class FirstPageListener implements
-     FirstPageFragmentListener {
-         public void onSwitchToNextFragment() {
+	 private final class FragmentChangeListener implements
+     NextFragmentListener {
+         public void onSwitchToNextFragment(String fragment) {
            mFragmentManager.beginTransaction().remove(mFragmentAtPos0).commit();
-             if (mFragmentAtPos0 instanceof ServFrag){
-            	 System.err.println("entra!");
-
+             
+             switch (fragment){
+             case "root":
+            	 mFragmentAtPos0 = ServFrag.newInstance(listener);
+                 break;
+             case "sf_frag":
             	 mFragmentAtPos0 = SFFrag.newInstance(listener);
-               
-             }else{ // Instance of NextFragment
-                 mFragmentAtPos0 = ServFrag.newInstance(listener);
-             }
+                 break;
+             case "desp_frag":
+            	 mFragmentAtPos0 = DespFrag.newInstance(listener);
+                 break;
+             }            
+             
              notifyDataSetChanged();
          }
      }
-     FirstPageListener listener = new FirstPageListener();
+     FragmentChangeListener listener = new FragmentChangeListener();
 
  
     @Override
@@ -66,7 +70,9 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
         // get item count - equal to number of tabs
         return 3;
     }
-    
+    /**
+     * THIS IS SOME REALLY IMPORTANT BUSINESS :)
+     */
     @Override
     public int getItemPosition(Object object)
     {
@@ -77,6 +83,13 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
          }else if(object instanceof SFFrag && mFragmentAtPos0 instanceof ServFrag){
               return POSITION_NONE;
          }
+        //DESP
+	    else if(object instanceof ServFrag && mFragmentAtPos0 instanceof DespFrag){
+	        return POSITION_NONE;
+	   }
+		else if(object instanceof DespFrag && mFragmentAtPos0 instanceof ServFrag){
+		    return POSITION_NONE;
+		}
             return POSITION_UNCHANGED;
 
     }
