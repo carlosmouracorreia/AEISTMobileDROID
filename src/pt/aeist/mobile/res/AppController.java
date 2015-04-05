@@ -2,6 +2,7 @@ package pt.aeist.mobile.res;
 
 import org.json.JSONArray;
 
+import pt.aeist.mobile.ActInicio;
 import pt.aeist.mobile.R;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -96,33 +97,40 @@ public class AppController extends Application {
             pDialog.dismiss();
     }
     
-    public boolean networkStatus(Context cont) {
+    public void networkStatus(Context cont,Activity a) {
     	ConnectivityManager cm = (ConnectivityManager) cont.getSystemService(Context.CONNECTIVITY_SERVICE);
     	NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+    	final ActInicio yolo = (ActInicio) a ;
     	boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
     	//work on this thread
     	
-   /* 	if(isConnected) {
+    	if(isConnected) {
     		AppController.getInstance().showpDialog();
     		StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
     	            new Response.Listener<String>() {
   	                    @Override
   	                    public void onResponse(String response) {
-  	                    	efConnected = true;
   	                    	AppController.getInstance().hidepDialog();
+  	                    	yolo.setNetworkStatus(true);
+  	                    	yolo.set_connectivityChecked(true);
   	                    }
     	}
     		  , new Response.ErrorListener() {
                   @Override
                   public void onErrorResponse(VolleyError error) {
-                	  efConnected = false;
                       AppController.getInstance().hidepDialog();
+                      yolo.setNetworkStatus(false);
+                      yolo.set_connectivityChecked(true);
                   }
               });
       AppController.getInstance().addToRequestQueue(stringRequest);
-    	 } */
-    	return isConnected;
+    	 }
+    	else {
+    	
+    	yolo.setNetworkStatus(false);
+    	yolo.set_connectivityChecked(true);
+    	}
 }
     
     public void openDialog(Context a) {
