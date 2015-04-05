@@ -1,5 +1,8 @@
 package pt.aeist.mobile.res;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 import org.json.JSONArray;
 
 import pt.aeist.mobile.ActInicio;
@@ -90,32 +93,60 @@ public class AppController extends Application {
         if (!pDialog.isShowing())
             pDialog.show();
     }
- 
     public void hidepDialog() {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
-    
-    public boolean networkStatus(Context cont) {
+    /**
+     * 
+     * @param cont
+     * @return 2 means ok, 1 means host, 0 means 3g or wifi
+     * 
+     */
+    public int networkStatus(Context cont) {
     	ConnectivityManager cm = (ConnectivityManager) cont.getSystemService(Context.CONNECTIVITY_SERVICE);
     	NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
     	//final ActInicio yolo = (ActInicio) a ;
     	boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
     	//work on this thread
-    	return isConnected;
+    	
+    	if(isConnected) {
+    		//Check if can connect to AEISTMobile Server. 3 seconds treshold
+    		 try {
+    	            URL url2 = new URL(url);
+    	            final HttpURLConnection urlc = (HttpURLConnection) url2.openConnection();
+    	            urlc.setRequestProperty("User-Agent", "Android Application");
+    	            urlc.setRequestProperty("Connection", "close");
+    	            urlc.setConnectTimeout(3 * 1000);
+    	            urlc.connect();
+    	            if (urlc.getResponseCode() == 200) {
+    	                return 2;
+    	            }
+    	        }
+    		 catch (java.net.ConnectException e) { return 1; } //host too
+    		 catch (Throwable e) {
+    	            return 1; // other exceptions
+    	        }
+    	        return 1; //error resolving host
+    	}
+    	else {
+    	return 0; //no wifi or 3g
+    	}
 }
     
-    public void openDialog(Context a) {
+    public void openDialog(Context a,int type) {
      	 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(a);
      	 		final Activity _a = (Activity) a;
    			// set title
    			alertDialogBuilder.setTitle(R.string.app_name);
     
    			// set dialog message
-   			alertDialogBuilder
-   				.setMessage(R.string.dialogo_net)
-   				.setCancelable(false)
+   			
+   				
+   				if(type==0) { alertDialogBuilder.setMessage(R.string.dialogo_net);}
+   			    if(type==1) {alertDialogBuilder.setMessage(R.string.dialogo_net_serv); }
+   			 alertDialogBuilder.setCancelable(false)
    				.setPositiveButton("Sair",new DialogInterface.OnClickListener() {
    					public void onClick(DialogInterface dialog,int id) {
    						_a.finish();

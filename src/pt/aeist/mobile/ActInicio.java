@@ -12,6 +12,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 
 
@@ -22,8 +24,25 @@ public class ActInicio extends ActionBarActivity implements
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
 	private String[] tabs = { "Eventos", "Serviços", "A AEIST" };
-
+	private boolean firstRun = true;
 	
+   Handler mHandler = new Handler()
+		 {
+		     public void handleMessage(Message msg)
+		     {
+		    	
+		    		    switch (msg.what) {
+		    		        case 1:
+		    		        	AppController.getInstance().openDialog(ActInicio.this,1);
+		    		            break;
+		    		        case 0:
+		    		        	AppController.getInstance().openDialog(ActInicio.this,0);
+		    		            break;
+		    		    }
+		    	 
+		     }
+		     
+		 };
 	
 	@Override
 	public void onBackPressed() {
@@ -103,9 +122,29 @@ public class ActInicio extends ActionBarActivity implements
 	    protected void onResume()
 	    {
 	       super.onResume();
-	    	   if(!AppController.getInstance().networkStatus(getBaseContext())) {
-	    		   AppController.getInstance().openDialog(ActInicio.this);
-	    	   }
+	       if(firstRun==true) {
+	    	   firstRun = false;
+	       }
+	       else {
+	    	   Thread logoTimer = new Thread() {
+	               public void run(){
+	            	   
+	            	   int msg = AppController.getInstance().networkStatus(getBaseContext());
+			    	   switch(msg) {
+			    	   case 0:
+			    		   mHandler.sendEmptyMessage(0);
+			    		   break;
+			    	   case 1:
+			    		   mHandler.sendEmptyMessage(1);
+			    		   break;
+			    	   case 2:
+			    		   break;
+			    	   }
+	               }
+	           };
+	           logoTimer.start();
+	       }
+	       
 	    }
 	       
 	    

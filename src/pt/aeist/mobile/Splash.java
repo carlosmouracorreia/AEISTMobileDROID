@@ -11,13 +11,23 @@ import android.os.Message;
 
 @SuppressLint("HandlerLeak")
 public class Splash extends Activity {
-	 Handler mHandler = new Handler()
-	 {
-	     public void handleMessage(Message msg)
-	     {
-	    	 AppController.getInstance().openDialog(Splash.this);
-	     }
-	 };
+	  Handler mHandler = new Handler()
+		 {
+		     public void handleMessage(Message msg)
+		     {
+		    	
+		    		    switch (msg.what) {
+		    		        case 1:
+		    		        	AppController.getInstance().openDialog(Splash.this,1);
+		    		            break;
+		    		        case 0:
+		    		        	AppController.getInstance().openDialog(Splash.this,0);
+		    		            break;
+		    		    }
+		    	 
+		     }
+		     
+		 };
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,17 +39,22 @@ public class Splash extends Activity {
             public void run(){
                 try{
                 	 sleep(1000);
-                     if (!AppController.getInstance().networkStatus(getBaseContext())) 
-                    {               
-                         mHandler.sendEmptyMessage(0);
-                    } else 
-                    { 
-                    startActivity(new Intent("pt.aeist.mobile.START"));
-                    finish();
-                    
+                	 
+                	 int msg = AppController.getInstance().networkStatus(getBaseContext());
+			    	   switch(msg) {
+			    	   case 0:
+			    		   mHandler.sendEmptyMessage(0);
+			    		   break;
+			    	   case 1:
+			    		   mHandler.sendEmptyMessage(1);
+			    		   break;
+			    	   case 2:
+			    		   startActivity(new Intent("pt.aeist.mobile.START"));
+		                   finish();
+			    		  
+			    	   }
+
                     }
-                } 
-                 
                 catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
