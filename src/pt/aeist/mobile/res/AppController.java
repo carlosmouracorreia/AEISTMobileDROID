@@ -157,13 +157,12 @@ public class AppController extends Application {
    		                Intent intent = new Intent(Settings.ACTION_SETTINGS);
    		                intent.addCategory(Intent.CATEGORY_LAUNCHER);           
    		                _a.startActivity(intent);
-   		              _a.finish();
+   		             
    		            }
    		        });
    				
     
    				AlertDialog alertDialog = alertDialogBuilder.create();
-    
    				alertDialog.show();
    			}
 }

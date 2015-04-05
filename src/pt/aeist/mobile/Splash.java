@@ -11,6 +11,7 @@ import android.os.Message;
 
 @SuppressLint("HandlerLeak")
 public class Splash extends Activity {
+	private boolean firstRun = true;
 	  Handler mHandler = new Handler()
 		 {
 		     public void handleMessage(Message msg)
@@ -28,41 +29,49 @@ public class Splash extends Activity {
 		     }
 		     
 		 };
-	
+		 Thread logoTimer = new Thread() {
+	            public void run(){
+	                try{
+	                	 sleep(1000);
+	                	 
+	                	 int msg = AppController.getInstance().networkStatus(getBaseContext());
+				    	   switch(msg) {
+				    	   case 0:
+				    		   mHandler.sendEmptyMessage(0);
+				    		   this.interrupt();
+				    		   break;
+				    	   case 1:
+				    		   mHandler.sendEmptyMessage(1);
+				    		   this.interrupt();
+				    		   break;
+				    	   case 2:
+				    		   startActivity(new Intent("pt.aeist.mobile.START"));
+			                   finish();
+				    		  
+				    	   }
+
+	                    }
+	                catch (InterruptedException e) {
+	                    // TODO Auto-generated catch block
+	                    e.printStackTrace();
+	                }
+	            }
+	        };
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);     
         setContentView(R.layout.splash);
-        
-
-        Thread logoTimer = new Thread() {
-            public void run(){
-                try{
-                	 sleep(1000);
-                	 
-                	 int msg = AppController.getInstance().networkStatus(getBaseContext());
-			    	   switch(msg) {
-			    	   case 0:
-			    		   mHandler.sendEmptyMessage(0);
-			    		   break;
-			    	   case 1:
-			    		   mHandler.sendEmptyMessage(1);
-			    		   break;
-			    	   case 2:
-			    		   startActivity(new Intent("pt.aeist.mobile.START"));
-		                   finish();
-			    		  
-			    	   }
-
-                    }
-                catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
-        };
-         
-        logoTimer.start();
-}
+		 logoTimer.start();
+        }
+	 
+	protected void onResume()
+	    {
+		 super.onResume();
+		 if(firstRun) {
+			 firstRun = false;
+		 } else {
+			 logoTimer.run();
+		 }
+	   }
 	
 }
