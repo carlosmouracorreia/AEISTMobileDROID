@@ -11,9 +11,6 @@ import android.os.Message;
 
 @SuppressLint("HandlerLeak")
 public class Splash extends Activity {
-	private boolean _networkStatusOn;
-	private boolean _connectivityChecked;
-	private Activity Sp = this;
 	 Handler mHandler = new Handler()
 	 {
 	     public void handleMessage(Message msg)
@@ -32,18 +29,15 @@ public class Splash extends Activity {
             public void run(){
                 try{
                 	 sleep(1000);
-                	/* AppController.getInstance().networkStatus(getBaseContext(),Sp);
-                	  while(!is_connectivityChecked()) {}
-           	    	   if(!getNetworkStatus()) {
-
+                     if (!AppController.getInstance().networkStatus(getBaseContext())) 
+                    {               
                          mHandler.sendEmptyMessage(0);
-           	    	   }
-                     else 
-                    { */
+                    } else 
+                    { 
                     startActivity(new Intent("pt.aeist.mobile.START"));
                     finish();
                     
-                   // }
+                    }
                 } 
                  
                 catch (InterruptedException e) {
@@ -55,21 +49,5 @@ public class Splash extends Activity {
          
         logoTimer.start();
 }
-	
-	public void setNetworkStatus(boolean networkStatusOn) {
-		_networkStatusOn = networkStatusOn;
-	}
-	
-	public boolean getNetworkStatus() {
-		return _networkStatusOn;
-	}
-	
-	public boolean is_connectivityChecked() {
-		return _connectivityChecked;
-	}
-
-	public void set_connectivityChecked(boolean _connectivityChecked) {
-		this._connectivityChecked = _connectivityChecked;
-	}
 	
 }

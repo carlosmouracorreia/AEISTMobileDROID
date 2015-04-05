@@ -33,7 +33,6 @@ public class AppController extends Application {
 	private RequestQueue mRequestQueue;
 	private ImageLoader mImageLoader;
 	private ProgressDialog pDialog;
-	private boolean efConnected;
 	private static final String url = "http://mobile.aeist.pt/index.html";
 
 	private static AppController mInstance;
@@ -97,40 +96,14 @@ public class AppController extends Application {
             pDialog.dismiss();
     }
     
-    public void networkStatus(Context cont,Activity a) {
+    public boolean networkStatus(Context cont) {
     	ConnectivityManager cm = (ConnectivityManager) cont.getSystemService(Context.CONNECTIVITY_SERVICE);
     	NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-    	final ActInicio yolo = (ActInicio) a ;
+    	//final ActInicio yolo = (ActInicio) a ;
     	boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
     	//work on this thread
-    	
-    	if(isConnected) {
-    		AppController.getInstance().showpDialog();
-    		StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-    	            new Response.Listener<String>() {
-  	                    @Override
-  	                    public void onResponse(String response) {
-  	                    	AppController.getInstance().hidepDialog();
-  	                    	yolo.setNetworkStatus(true);
-  	                    	yolo.set_connectivityChecked(true);
-  	                    }
-    	}
-    		  , new Response.ErrorListener() {
-                  @Override
-                  public void onErrorResponse(VolleyError error) {
-                      AppController.getInstance().hidepDialog();
-                      yolo.setNetworkStatus(false);
-                      yolo.set_connectivityChecked(true);
-                  }
-              });
-      AppController.getInstance().addToRequestQueue(stringRequest);
-    	 }
-    	else {
-    	
-    	yolo.setNetworkStatus(false);
-    	yolo.set_connectivityChecked(true);
-    	}
+    	return isConnected;
 }
     
     public void openDialog(Context a) {

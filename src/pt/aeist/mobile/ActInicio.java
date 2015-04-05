@@ -22,18 +22,8 @@ public class ActInicio extends ActionBarActivity implements
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
 	private String[] tabs = { "Eventos", "Serviços", "A AEIST" };
-	private boolean _networkStatusOn;
-	private boolean _connectivityChecked;
+
 	
-	
-	
-	public void setNetworkStatus(boolean networkStatusOn) {
-		_networkStatusOn = networkStatusOn;
-	}
-	
-	public boolean getNetworkStatus() {
-		return _networkStatusOn;
-	}
 	
 	@Override
 	public void onBackPressed() {
@@ -56,7 +46,6 @@ public class ActInicio extends ActionBarActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		set_connectivityChecked(false);
 		setContentView(R.layout.activity_act_inicio);
 		//inicializacao
 		viewPager = (ViewPager) findViewById(R.id.pager);
@@ -114,12 +103,9 @@ public class ActInicio extends ActionBarActivity implements
 	    protected void onResume()
 	    {
 	       super.onResume();
-	       while(!is_connectivityChecked()) {}
-	       AppController.getInstance().networkStatus(getBaseContext(),this);
-	    	   if(!getNetworkStatus()) {
+	    	   if(!AppController.getInstance().networkStatus(getBaseContext())) {
 	    		   AppController.getInstance().openDialog(ActInicio.this);
 	    	   }
-	           	
 	    }
 	       
 	    
@@ -127,12 +113,6 @@ public class ActInicio extends ActionBarActivity implements
 	    	return viewPager;
 	    }
 
-		public boolean is_connectivityChecked() {
-			return _connectivityChecked;
-		}
-
-		public void set_connectivityChecked(boolean _connectivityChecked) {
-			this._connectivityChecked = _connectivityChecked;
-		}
+	
 
 }
