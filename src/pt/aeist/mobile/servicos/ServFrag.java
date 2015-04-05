@@ -24,11 +24,16 @@ public class ServFrag extends Fragment{
 	private ServListAdapter adapter;
     static FirstPageFragmentListener firstPageListener;
 
-	
-	public ServFrag(FirstPageFragmentListener listener) {
+    public static ServFrag newInstance(FirstPageFragmentListener listener){
         firstPageListener = listener;
+        return new ServFrag();
+
+    }
+	
+	public ServFrag() {
     }
 
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {

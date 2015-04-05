@@ -22,9 +22,14 @@ public class SFFrag extends Fragment {
     static FirstPageFragmentListener firstPageListener;
 
 	
-	public SFFrag(FirstPageFragmentListener listener) {
+    public static SFFrag newInstance(FirstPageFragmentListener listener){
         firstPageListener = listener;
-        System.err.println("what?");
+        return new SFFrag();
+
+    }
+    
+    
+	public SFFrag() {
     }
 
 	@Override

@@ -32,7 +32,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
         case 1:
         	 if (mFragmentAtPos0 == null)
              {
-                 mFragmentAtPos0 = new ServFrag(listener);
+                 mFragmentAtPos0 = ServFrag.newInstance(listener);
              }
              return mFragmentAtPos0;
         case 2:
@@ -46,20 +46,14 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 	 private final class FirstPageListener implements
      FirstPageFragmentListener {
          public void onSwitchToNextFragment() {
-             mFragmentManager.beginTransaction().remove(mFragmentAtPos0)
-             .commit();
+           mFragmentManager.beginTransaction().remove(mFragmentAtPos0).commit();
              if (mFragmentAtPos0 instanceof ServFrag){
             	 System.err.println("entra!");
 
-            	 SFFrag fragment = new SFFrag(listener);
-                 FragmentTransaction transaction = null;
-                 transaction = mFragmentAtPos0.getFragmentManager().beginTransaction();
-                 
-                 transaction.replace(R.id.pager, fragment); //id of ViewPager
-                 transaction.addToBackStack(null);
-                 transaction.commit();
+            	 mFragmentAtPos0 = SFFrag.newInstance(listener);
+               
              }else{ // Instance of NextFragment
-                 mFragmentAtPos0 = new ServFrag(listener);
+                 mFragmentAtPos0 = ServFrag.newInstance(listener);
              }
              notifyDataSetChanged();
          }
@@ -71,6 +65,20 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         // get item count - equal to number of tabs
         return 3;
+    }
+    
+    @Override
+    public int getItemPosition(Object object)
+    {
+        //object is the current fragment displayed at position 0.  
+        if(object instanceof ServFrag && mFragmentAtPos0 instanceof SFFrag){
+            return POSITION_NONE;
+        //this condition is for when you press back
+         }else if(object instanceof SFFrag && mFragmentAtPos0 instanceof ServFrag){
+              return POSITION_NONE;
+         }
+            return POSITION_UNCHANGED;
+
     }
 
 }

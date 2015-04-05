@@ -11,4 +11,27 @@
         android:layout_height="wrap_content"
         android:text="Um GANDA teste OH MANO . FTRY? yeahh :)" />
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
 </LinearLayout>

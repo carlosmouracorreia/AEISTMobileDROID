@@ -24,7 +24,7 @@ public class ActInicio extends ActionBarActivity implements
 	
 	@Override
 	public void onBackPressed() {
-        if(viewPager.getCurrentItem() == 0) {
+        if(viewPager.getCurrentItem() == 1) {
             if (mAdapter.getItem(1) instanceof SFFrag) {
                 ((SFFrag) mAdapter.getItem(1)).backPressed();
             }
