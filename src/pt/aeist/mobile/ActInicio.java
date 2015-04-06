@@ -34,25 +34,29 @@ public class ActInicio extends ActionBarActivity implements
 	
     Handler mHandler = new Handler()
 		 {
-		     public void handleMessage(Message msg)
-		     {
-		    	
-		    		    switch (msg.what) {
-		    		        case 1:
-		    		        	AppController.getInstance().openDialog(ActInicio.this,1);
-		    		            break;
-		    		        case 0:
-		    		        	AppController.getInstance().openDialog(ActInicio.this,0);
-		    		            break;
-		    		    }
-		    	 
-		     }
+	    public void handleMessage(Message msg)
+	     {
+		    switch (msg.what) {
+		        case 1:
+		        	AppController.getInstance().openDialog(ActInicio.this,1);
+		            break;
+		        case 0:
+		        	AppController.getInstance().openDialog(ActInicio.this,0);
+		            break;
+		    }
+	     }
 		     
 		 }; 
 		 
 		 public Handler getHandler() {
 				return mHandler;
 			}
+		 
+		 Thread logoTimer = new Thread() {
+             public void run(){
+          	  AppController.getInstance().new CheckConnectivity().execute(getBaseContext());
+             }
+         };
 	
 	@Override
 	public void onBackPressed() {
@@ -114,8 +118,6 @@ public class ActInicio extends ActionBarActivity implements
 	            }
 	        });     
 	}
-		 
-	 
 	    @Override
 	    public void onTabReselected(Tab tab, FragmentTransaction ft) {
 	    }
@@ -124,12 +126,7 @@ public class ActInicio extends ActionBarActivity implements
 	    public void onTabSelected(Tab tab, FragmentTransaction ft) {
 	        // on tab selected
 	        // show respected fragment view
-	    	 Thread logoTimer = new Thread() {
-	               public void run(){
-	            	  AppController.getInstance().new CheckConnectivity().execute(getBaseContext());
-	               }
-	           };
-	           logoTimer.start();
+	           logoTimer.run();
 	        viewPager.setCurrentItem(tab.getPosition());
 	    }
 	 
@@ -144,12 +141,7 @@ public class ActInicio extends ActionBarActivity implements
 	    	   firstRun = false;
 	       }
 	       else {
-	    	   Thread logoTimer = new Thread() {
-	                  public void run(){
-	            	  AppController.getInstance().new CheckConnectivity().execute(getBaseContext());
-	               }
-	           };
-	           logoTimer.start(); 
+	           logoTimer.run(); 
 	       }
 	       
 	    }

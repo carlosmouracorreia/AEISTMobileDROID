@@ -110,13 +110,12 @@ public class AppController extends Application {
         protected Integer doInBackground(Context... cont) {
         	ConnectivityManager cm = (ConnectivityManager) cont[0].getSystemService(Context.CONNECTIVITY_SERVICE);
         	NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        	//final ActInicio yolo = (ActInicio) a ;
         	boolean isConnected = activeNetwork != null &&
                     activeNetwork.isConnectedOrConnecting();
         	//work on this thread
         	if(isConnected) {
         		
-        		//Check if can connect to AEISTMobile Server. 3 seconds treshold
+        		//Check if can connect to AEISTMobile Server. 3 seconds threshold
         		try {
         	            URL url2 = new URL(url);
         	            final HttpURLConnection urlc = (HttpURLConnection) url2.openConnection();
