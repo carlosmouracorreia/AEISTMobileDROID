@@ -70,7 +70,7 @@ public class Splash extends Activity {
 		 if(firstRun) {
 			 firstRun = false;
 		 } else {
-			 logoTimer.run();
+			 logoTimer.start();
 		 }
 	   }
 	

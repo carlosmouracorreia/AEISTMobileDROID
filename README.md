@@ -5,13 +5,12 @@ When clicking on tab "Servicos" after entering other fragment, go to the start (
 
 
 RESOLVE LEAKS WITH HANDLER - THREAD 
-Settings button crashes
-check connectivity when changing fragments. not only on resume #1
 
-when going to settings, go back to app and not close it.
+AsyncTask to checkConnectivity from time to time?
 
-
-ploading frag correct.
-internet connection fragment. #1
+ASYNCTASK to resolve networkOnMainThread on onResume SplashScreen failure.
 
 Clean code
+
+DO SF FRAG
+DO DESP FRAG
