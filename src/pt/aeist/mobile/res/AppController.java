@@ -7,6 +7,7 @@ import org.json.JSONArray;
 
 import pt.aeist.mobile.ActInicio;
 import pt.aeist.mobile.R;
+import pt.aeist.mobile.Splash;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Application;
@@ -16,6 +17,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.provider.Settings;
 import android.text.TextUtils;
 
@@ -33,6 +35,7 @@ public class AppController extends Application {
 
 	public static final String TAG = AppController.class.getSimpleName();
 
+	private boolean appStarted;
 	private RequestQueue mRequestQueue;
 	private ImageLoader mImageLoader;
 	private ProgressDialog pDialog;
@@ -102,39 +105,65 @@ public class AppController extends Application {
      * @param cont
      * @return 2 means ok, 1 means host, 0 means 3g or wifi
      * 
-     */
-    public int networkStatus(Context cont) {
-    	ConnectivityManager cm = (ConnectivityManager) cont.getSystemService(Context.CONNECTIVITY_SERVICE);
-    	NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-    	//final ActInicio yolo = (ActInicio) a ;
-    	boolean isConnected = activeNetwork != null &&
-                activeNetwork.isConnectedOrConnecting();
-    	//work on this thread
-    	
-    	if(isConnected) {
-    		//Check if can connect to AEISTMobile Server. 3 seconds treshold
-    		 try {
-    	            URL url2 = new URL(url);
-    	            final HttpURLConnection urlc = (HttpURLConnection) url2.openConnection();
-    	            urlc.setRequestProperty("User-Agent", "Android Application");
-    	            urlc.setRequestProperty("Connection", "close");
-    	            urlc.setConnectTimeout(3 * 1000);
-    	            urlc.connect();
-    	            if (urlc.getResponseCode() == 200) {
-    	                return 2;
-    	            }
-    	        }
-    		 catch (java.net.ConnectException e) { return 1; } //host too
-    		 catch (Throwable e) {
-    	            return 1; // other exceptions
-    	        }
-    	        return 1; //error resolving host
-    	}
-    	else {
-    	return 0; //no wifi or 3g
-    	}
-}
-    
+     */    
+     public class CheckConnectivity extends AsyncTask<Context, Void, Integer> {
+        protected Integer doInBackground(Context... cont) {
+        	ConnectivityManager cm = (ConnectivityManager) cont[0].getSystemService(Context.CONNECTIVITY_SERVICE);
+        	NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        	//final ActInicio yolo = (ActInicio) a ;
+        	boolean isConnected = activeNetwork != null &&
+                    activeNetwork.isConnectedOrConnecting();
+        	//work on this thread
+        	if(isConnected) {
+        		
+        		//Check if can connect to AEISTMobile Server. 3 seconds treshold
+        		try {
+        	            URL url2 = new URL(url);
+        	            final HttpURLConnection urlc = (HttpURLConnection) url2.openConnection();
+        	            urlc.setRequestProperty("User-Agent", "Android Application");
+        	            urlc.setRequestProperty("Connection", "close");
+        	            urlc.setConnectTimeout(3 * 1000);
+        	            urlc.connect();
+        	            if (urlc.getResponseCode() == 200) {
+        	                return 2;
+        	            }
+        	        }
+        		 catch (java.net.ConnectException e) { return 1; } //host too
+        		 catch (Throwable e) {
+        	            return 1; // other exceptions
+        	        }
+        	        return 1;  //error resolving host
+        	}
+        	else {
+        	return 0; //no wifi or 3g
+        	}
+        }
+        protected void onPostExecute(Integer result) {
+        	if(isAppStarted()) {
+        		switch(result) {
+		    	   case 0:
+		    		   ActInicio.getInstance().getHandler().sendEmptyMessage(0);
+		    		   break;
+		    	   case 1:
+		    		   ActInicio.getInstance().getHandler().sendEmptyMessage(1);
+		    		   break;
+		    	   case 2:
+		    		   break;
+        		}
+        	} else {
+	        	switch(result) {
+		    	   case 0:
+		    		   Splash.getInstance().getHandler().sendEmptyMessage(0);
+		    		   break;
+		    	   case 1:
+		    		   Splash.getInstance().getHandler().sendEmptyMessage(1);
+		    		   break;
+		    	   case 2:
+		    		   Splash.getInstance().startApp();
+	        	}
+        	}
+    }
+ }
     public void openDialog(Context a,int type) {
      	 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(a);
      	 		final Activity _a = (Activity) a;
@@ -165,4 +194,12 @@ public class AppController extends Application {
    				AlertDialog alertDialog = alertDialogBuilder.create();
    				alertDialog.show();
    			}
+
+	public boolean isAppStarted() {
+		return appStarted;
+	}
+
+	public void setAppStarted(boolean appStarted) {
+		this.appStarted = appStarted;
+	}
 }

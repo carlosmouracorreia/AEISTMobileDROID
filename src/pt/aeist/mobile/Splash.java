@@ -12,14 +12,28 @@ import android.os.Message;
 @SuppressLint("HandlerLeak")
 public class Splash extends Activity {
 	private boolean firstRun = true;
+	private static Splash mInstance;
+
+	public static synchronized Splash getInstance() {
+		return mInstance;
+	}
+	
+	public Handler getHandler() {
+		return mHandler;
+	}
+	
+   public void startApp() {
+	 startActivity(new Intent("pt.aeist.mobile.START"));
+     finish();
+   }
+
 	  Handler mHandler = new Handler()
 		 {
 		     public void handleMessage(Message msg)
 		     {
-		    	
 		    		    switch (msg.what) {
 		    		        case 1:
-		    		        	AppController.getInstance().openDialog(Splash.this,1);
+		    		        	AppController.getInstance().openDialog(Splash.this,1);   		        	
 		    		            break;
 		    		        case 0:
 		    		        	AppController.getInstance().openDialog(Splash.this,0);
@@ -33,22 +47,8 @@ public class Splash extends Activity {
 	            public void run(){
 	                try{
 	                	 sleep(1000);
-	                	 
-	                	 int msg = AppController.getInstance().networkStatus(getBaseContext());
-				    	   switch(msg) {
-				    	   case 0:
-				    		   mHandler.sendEmptyMessage(0);
-				    		   this.interrupt();
-				    		   break;
-				    	   case 1:
-				    		   mHandler.sendEmptyMessage(1);
-				    		   this.interrupt();
-				    		   break;
-				    	   case 2:
-				    		   startActivity(new Intent("pt.aeist.mobile.START"));
-			                   finish();
-				    		  
-				    	   }
+	 	            	AppController.getInstance().new CheckConnectivity().execute(getBaseContext());
+
 
 	                    }
 	                catch (InterruptedException e) {
@@ -59,7 +59,9 @@ public class Splash extends Activity {
 	        };
 	@Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);     
+        super.onCreate(savedInstanceState);    
+		AppController.getInstance().setAppStarted(false);
+        mInstance = this;
         setContentView(R.layout.splash);
 		 logoTimer.start();
         }
@@ -70,7 +72,7 @@ public class Splash extends Activity {
 		 if(firstRun) {
 			 firstRun = false;
 		 } else {
-			 logoTimer.start();
+			 logoTimer.run();
 		 }
 	   }
 	

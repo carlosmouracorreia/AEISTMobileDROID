@@ -4,6 +4,7 @@ package pt.aeist.mobile;
 
 import pt.aeist.mobile.res.AppController;
 import pt.aeist.mobile.res.TabsPagerAdapter;
+import pt.aeist.mobile.res.AppController.CheckConnectivity;
 import pt.aeist.mobile.servicos.DespFrag;
 import pt.aeist.mobile.servicos.SFFrag;
 import pt.aeist.mobile.servicos.ServFrag;
@@ -23,10 +24,15 @@ public class ActInicio extends ActionBarActivity implements
 	private ViewPager viewPager;
 	private TabsPagerAdapter mAdapter;
 	private ActionBar actionBar;
+	private static ActInicio mInstance;
 	private String[] tabs = { "Eventos", "Serviços", "A AEIST" };
 	private boolean firstRun = true;
 	
-   Handler mHandler = new Handler()
+	public static synchronized ActInicio getInstance() {
+		return mInstance;
+	}
+	
+    Handler mHandler = new Handler()
 		 {
 		     public void handleMessage(Message msg)
 		     {
@@ -42,7 +48,11 @@ public class ActInicio extends ActionBarActivity implements
 		    	 
 		     }
 		     
-		 };
+		 }; 
+		 
+		 public Handler getHandler() {
+				return mHandler;
+			}
 	
 	@Override
 	public void onBackPressed() {
@@ -65,6 +75,8 @@ public class ActInicio extends ActionBarActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mInstance = this;
+		AppController.getInstance().setAppStarted(true);
 		setContentView(R.layout.activity_act_inicio);
 		//inicializacao
 		viewPager = (ViewPager) findViewById(R.id.pager);
@@ -114,18 +126,7 @@ public class ActInicio extends ActionBarActivity implements
 	        // show respected fragment view
 	    	 Thread logoTimer = new Thread() {
 	               public void run(){
-	            	   
-	            	   int msg = AppController.getInstance().networkStatus(getBaseContext());
-			    	   switch(msg) {
-			    	   case 0:
-			    		   mHandler.sendEmptyMessage(0);
-			    		   break;
-			    	   case 1:
-			    		   mHandler.sendEmptyMessage(1);
-			    		   break;
-			    	   case 2:
-			    		   break;
-			    	   }
+	            	  AppController.getInstance().new CheckConnectivity().execute(getBaseContext());
 	               }
 	           };
 	           logoTimer.start();
@@ -144,22 +145,11 @@ public class ActInicio extends ActionBarActivity implements
 	       }
 	       else {
 	    	   Thread logoTimer = new Thread() {
-	               public void run(){
-	            	   
-	            	   int msg = AppController.getInstance().networkStatus(getBaseContext());
-			    	   switch(msg) {
-			    	   case 0:
-			    		   mHandler.sendEmptyMessage(0);
-			    		   break;
-			    	   case 1:
-			    		   mHandler.sendEmptyMessage(1);
-			    		   break;
-			    	   case 2:
-			    		   break;
-			    	   }
+	                  public void run(){
+	            	  AppController.getInstance().new CheckConnectivity().execute(getBaseContext());
 	               }
 	           };
-	           logoTimer.start();
+	           logoTimer.start(); 
 	       }
 	       
 	    }
