@@ -3,8 +3,8 @@ _____________________DISCLAIMER:______________________
 
 **:::::::::::::: ToDo. First Release Version: :::::::::::**
 
-When clicking on tab "Servicos" after entering other fragment, go to the start (or have some indicator)
-AsyncTask to checkConnectivity from time to time?
+* When clicking on tab "Servicos" after entering other fragment, go to the start (or have some indicator)
+* AsyncTask to checkConnectivity from time to time?
 * Do load - Events {JSON} on splash screen.
 * Clean code
 * DO SF FRAG
