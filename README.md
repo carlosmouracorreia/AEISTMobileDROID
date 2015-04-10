@@ -19,3 +19,6 @@ Close all AlertDialogs when internet backup
 Resolve leaks with handler implementation
 AsyncTask not to be implemented under a normal Thread?
 Multiple Page Events
+
+https://github.com/carloscorreia94/AEISTMobile-BO
+BackOffice for the app.
