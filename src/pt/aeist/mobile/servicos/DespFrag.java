@@ -36,7 +36,7 @@ public class DespFrag extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
-		View rootView = inflater.inflate(R.layout.desp_frag, container, false);
+		View rootView = inflater.inflate(R.layout.header_desp_frag, container, false);
 		return rootView;
 	}
 
