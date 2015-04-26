@@ -6,6 +6,7 @@ package pt.aeist.mobile.res;
 import pt.aeist.mobile.R;
 import pt.aeist.mobile.info.AEFrag;
 import pt.aeist.mobile.servicos.DespFrag;
+import pt.aeist.mobile.servicos.RecFrag;
 import pt.aeist.mobile.servicos.SFFrag;
 import pt.aeist.mobile.servicos.ServFrag;
 import pt.aeist.mobile.eventos.EventosFrag;
@@ -57,6 +58,9 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
              case "desp_frag":
             	 mFragmentAtPos0 = DespFrag.newInstance(listener);
                  break;
+             case "rec_frag":
+            	 mFragmentAtPos0 = RecFrag.newInstance(listener);
+                 break;
              }            
              
              notifyDataSetChanged();
@@ -90,6 +94,13 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 		else if(object instanceof DespFrag && mFragmentAtPos0 instanceof ServFrag){
 		    return POSITION_NONE;
 		}
+        //REC
+		 else if(object instanceof ServFrag && mFragmentAtPos0 instanceof RecFrag){
+		        return POSITION_NONE;
+		   }
+			else if(object instanceof RecFrag && mFragmentAtPos0 instanceof ServFrag){
+			    return POSITION_NONE;
+			}
             return POSITION_UNCHANGED;
 
     }
