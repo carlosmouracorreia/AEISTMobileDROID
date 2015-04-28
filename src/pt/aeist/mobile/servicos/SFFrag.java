@@ -22,7 +22,7 @@ import android.widget.ListView;
 public class SFFrag extends Fragment {
 	protected static final String TAG = "Servicos";
     static NextFragmentListener firstPageListener;
-    private MainServiceAdapter serviceAdapter;
+    private SFAdapter serviceAdapter;
 	
     public static SFFrag newInstance(NextFragmentListener listener){
         firstPageListener = listener;
@@ -42,9 +42,10 @@ public class SFFrag extends Fragment {
 		 ExpandableListView listaServicos = (ExpandableListView)rootView.findViewById(R.id.listView2);
 	       ViewGroup header = (ViewGroup) inflater.inflate(R.layout.header_sf_frag, listaServicos,
                  false);
-	       serviceAdapter = new MainServiceAdapter(getActivity());
+	       serviceAdapter = new SFAdapter(getActivity());
      	   listaServicos.addHeaderView(header, null, false);
 	       listaServicos.setAdapter(serviceAdapter);
+	       listaServicos.expandGroup(3);
 		return rootView;
 	}
 

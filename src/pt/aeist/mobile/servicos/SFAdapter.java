@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
 
-public class MainServiceAdapter extends BaseExpandableListAdapter {
+public class SFAdapter extends BaseExpandableListAdapter {
 	
 	private class ServicoContainer {
 		String _name;
@@ -32,12 +32,17 @@ public class MainServiceAdapter extends BaseExpandableListAdapter {
 	}	
 	private Activity _act;
 	private List<ServicoContainer> _container = new ArrayList<ServicoContainer>();	
-	public MainServiceAdapter(Activity act) {
+	public SFAdapter(Activity act) {
 		_act = act;
-		ServicoContainer inst = new ServicoContainer("Sobre","Cenasssssss e cenas88","");
-		ServicoContainer inst2 = new ServicoContainer("Preços","Muitos Preços vão figurar aqui.","");
+		ServicoContainer inst = new ServicoContainer("Preçário","Cenasssssss e cenas88","");
+		ServicoContainer inst2 = new ServicoContainer("Sebentas","Muitos Preços vão figurar aqui.","");
+		ServicoContainer inst3 = new ServicoContainer("Sala de Estudo","Muitos Preços vão figurar aqui.","");
+		ServicoContainer inst4 = new ServicoContainer("Horários/Contactos/Sobre","Muitos Preços vão figurar aqui.","");
+
 		_container.add(inst);
 		_container.add(inst2);
+		_container.add(inst3);
+		_container.add(inst4);
 		
 	}
 

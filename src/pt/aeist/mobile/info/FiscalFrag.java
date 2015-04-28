@@ -165,9 +165,12 @@ public class FiscalFrag extends Fragment {
 	        pelouroList = new ArrayList<PelouroContainer>();
 	        
 	        PelouroContainer p1 = new PelouroContainer("Conselho Fiscal");
-	        p1.addPessoa(new Pessoa("Pedro Sereno","Presidente","http://mobile.aeist.pt/dAEISTpics/pres/sereno.jpg","pedro.sereno@aeist.pt"));
-	        p1.addPessoa(new Pessoa("Marco Gomes","Vice-Presidente da Administração Financeira","http://mobile.aeist.pt/dAEISTpics/pres/marco.jpg","marco.gomes@aeist.pt"));
-	        p1.addPessoa(new Pessoa("Maria de Almeida","Vice-Presidente da Gestão","http://mobile.aeist.pt/dAEISTpics/pres/maria.jpg","maria.almeida@aeist.pt"));
+	        p1.addPessoa(new Pessoa("João Agostinho","Presidente","http://mobile.aeist.pt/CF/joaoagostinho.jpg","joao.agostinho@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Pedro Nobre","Vogal","http://mobile.aeist.pt/CF/pedronobre.jpg","pedro.nobre@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Martim Pereira","Vogal","http://mobile.aeist.pt/CF/martimpereira.jpg","martim.pereira@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Gustavo Laranjeira","Vogal","http://mobile.aeist.pt/CF/gustavolaranjeira.jpg","gustavo.laranjeira@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Raquel Afonso","Vogal","http://mobile.aeist.pt/CF/raquelafonso.jpg","raquel.afonso@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Sebastião Oliveira","Vogal","http://mobile.aeist.pt/CF/sebastiaooliveira.jpg","sebastiao.oliveira@aeist.pt"));
 	        pelouroList.add(p1);
 	        
 	        
