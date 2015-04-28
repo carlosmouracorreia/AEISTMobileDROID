@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/servicos_list_selector"
+    android:padding="8dp" >
+ 
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/title"
+        android:text="Contactos."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dip"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+    
+     <!-- Rating -->
+
+    <TextView
+        android:id="@+id/alameda"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="1dip"
+        android:gravity="right"
+        android:text="Telefone:"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+ 
+    <!-- Rating -->
+
+    <TextView
+        android:id="@+id/horario_alameda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/alameda"
+        android:layout_alignTop="@+id/alameda"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:text="210000000﻿"
+        android:textSize="15sp" />
+    
+     <TextView
+         android:id="@+id/tagus"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/horario_alameda"
+         android:layout_marginRight="5dip"
+         android:layout_marginTop="8dip"
+         android:gravity="right"
+         android:text="Emails:"
+         android:textSize="15sp"
+         android:textStyle="bold" />
+ 
+    <!-- Rating -->
+    <TextView
+        android:id="@+id/horario_tagus2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/alameda"
+        android:layout_alignTop="@+id/tagus"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:text="Geral - recreativa@aeist.pt﻿"
+        android:textSize="15sp" />
+    <TextView
+ 	    android:id="@+id/horario_tagus1"
+ 	    android:layout_width="match_parent"
+ 	    android:layout_height="wrap_content"
+ 	    android:layout_alignLeft="@+id/alameda"
+ 	    android:layout_alignTop="@+id/horario_tagus2"
+ 	    android:layout_marginTop="16dp"
+ 	    android:gravity="right"
+ 	    android:text="Agendar Churrascos - churrascos@aeist.pt﻿"
+ 	    android:textSize="15sp" />
+    
+</RelativeLayout>

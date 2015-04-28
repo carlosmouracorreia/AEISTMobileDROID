@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/servicos_list_selector"
+    android:padding="8dp" >
+ 
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/title"
+        android:text="Acerca da Recreativa."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dip"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        android:layout_below="@id/title"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:text="• Todos os eventos lúdicos afiliados aos alunos do IST passam por aqui"
+        android:textSize="15sp" />
+    
+     <TextView
+         android:id="@+id/about2"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/title"
+         android:layout_below="@id/about"
+         android:layout_marginTop="16dp"
+         android:gravity="right"
+         android:text="• Ponto central pelo qual pasasam todas as festas, por aqui não perdes uma!"
+         android:textSize="15sp" />
+     
+      <TextView
+        android:id="@+id/about3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/about2"
+        android:gravity="right"
+        android:text="• O maior evento da recreativa, Arraial do Técnico contou este ano com a sua 20ª edição"
+        android:textSize="15sp" />
+    
+</RelativeLayout>

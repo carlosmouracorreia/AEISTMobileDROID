@@ -160,7 +160,7 @@ public class RecAdapter extends BaseExpandableListAdapter {
         AppController.getInstance().addToRequestQueue(req);
 
 		//end
-		MiscContainer inst = new ServicoContainer("Contactos e informações");
+		MiscContainer inst = new ServicoContainer("Informações e contactos");
 		MiscContainer inst2 = new ServicoContainer("BBQ's");
 		_container.add(inst);
 		_container.add(inst2);
@@ -190,10 +190,11 @@ public class RecAdapter extends BaseExpandableListAdapter {
 	        final String nome = getChild(groupPosition, childPosition).get_name();
 	        final String desc = getChild(groupPosition, childPosition).get_desc();
 	        final String imageLink = getChild(groupPosition, childPosition).get_urlFoto();
+	        final String dia = getChild(groupPosition, childPosition).get_dia();
 	       
 	            LayoutInflater infalInflater = (LayoutInflater) _act
 	                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	            convertView = infalInflater.inflate(R.layout.list_pessoa, null);
+	            convertView = infalInflater.inflate(R.layout.list_churrasco, null);
 	        
 	 
 	       if (imageLoader == null)
@@ -205,9 +206,11 @@ public class RecAdapter extends BaseExpandableListAdapter {
 			thumbNail.setErrorImageResId(R.drawable.loader); 
 			TextView eventoNome = (TextView)convertView.findViewById(R.id.textView1);
 			TextView eventoDesc = (TextView)convertView.findViewById(R.id.textView2);
+			TextView eventoDia = (TextView)convertView.findViewById(R.id.data);
 			
 			eventoNome.setText(nome);
 			eventoDesc.setText(desc);
+			eventoDia.setText(dia);
 			thumbNail.setImageUrl(imageLink, imageLoader);
 	       
 		}
@@ -219,11 +222,10 @@ public class RecAdapter extends BaseExpandableListAdapter {
 	       
 	            switch(childPosition) {
 	            case 0:
-	            	convertView = infalInflater.inflate(R.layout.rec_info, null);
+	            	convertView = infalInflater.inflate(R.layout.rec_contacts_row, null);
 	            break;
-	            
 	            case 1:
-	            	convertView = infalInflater.inflate(R.layout.rec_contacts, null);
+	            	convertView = infalInflater.inflate(R.layout.rec_about_row, null);
 	            break;
 	            
 	            default:

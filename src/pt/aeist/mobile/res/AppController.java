@@ -89,7 +89,7 @@ public class AppController extends Application {
 	
 	public void initpDialog(Activity a) {
 		pDialog = new ProgressDialog(a);
-        pDialog.setMessage("Please wait...");
+        pDialog.setMessage("A descarregar conteudos...");
         pDialog.setCancelable(false);
 	}
 	public void showpDialog() {

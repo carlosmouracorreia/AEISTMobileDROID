@@ -7,8 +7,9 @@ _____________________DISCLAIMER:______________________
 * AsyncTask to checkConnectivity from time to time?
 * Do load - Events {JSON} on splash screen.
 * Clean code
-* DO SF FRAG
-* DO DESP FRAG
+* Version put 1.
+* GEFE Frag
+
 
 **:::::::::::::: Current Known Bugs :::::::::::::::::::::**
 
