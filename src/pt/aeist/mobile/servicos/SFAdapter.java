@@ -15,34 +15,34 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 
 public class SFAdapter extends BaseExpandableListAdapter {
 	
 	private class ServicoContainer {
 		String _name;
-		String _desc;
-		String _urlFoto;
 		
-		public ServicoContainer(String name,String desc,String urlFoto) {
+		public ServicoContainer(String name) {
 			_name = name;
-			_desc = desc;
-			_urlFoto = urlFoto;
 		}
 	}	
 	private Activity _act;
 	private List<ServicoContainer> _container = new ArrayList<ServicoContainer>();	
+	ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 	public SFAdapter(Activity act) {
 		_act = act;
-		ServicoContainer inst = new ServicoContainer("Preçário","Cenasssssss e cenas88","");
-		ServicoContainer inst2 = new ServicoContainer("Sebentas","Muitos Preços vão figurar aqui.","");
-		ServicoContainer inst3 = new ServicoContainer("Sala de Estudo","Muitos Preços vão figurar aqui.","");
-		ServicoContainer inst4 = new ServicoContainer("Horários/Contactos/Sobre","Muitos Preços vão figurar aqui.","");
+		ServicoContainer inst = new ServicoContainer("Preçário");
+		ServicoContainer inst2 = new ServicoContainer("Sebentas");
+		ServicoContainer inst3 = new ServicoContainer("Sala de Estudo");
+		ServicoContainer inst4 = new ServicoContainer("Horários/Contactos");
+		ServicoContainer inst5 = new ServicoContainer("Sobre");
 
 		_container.add(inst);
 		_container.add(inst2);
 		_container.add(inst3);
 		_container.add(inst4);
+		_container.add(inst5);
 		
 	}
 
@@ -60,36 +60,121 @@ public class SFAdapter extends BaseExpandableListAdapter {
 	@Override
     public View getChildView(int groupPosition, final int childPosition,
             boolean isLastChild, View convertView, ViewGroup parent) {
- 
-        final String nome = getChild(groupPosition, childPosition)._name;
-        final String desc = getChild(groupPosition, childPosition)._desc;
-        //final String imageLink = getChild(groupPosition, childPosition).imageLink;
-        
-        if (convertView == null) {
-            LayoutInflater infalInflater = (LayoutInflater) _act
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.list_pessoa, null);
-        }
- 
-       /* if (imageLoader == null)
-			imageLoader = AppController.getInstance().getImageLoader();
+		  LayoutInflater infalInflater = (LayoutInflater) _act
+                  .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		if(groupPosition==0) {
+			convertView = null;
+	      
+	          
+	       
+	            switch(childPosition) {
+	            case 0:
+	            	convertView = infalInflater.inflate(R.layout.sf_price, null);
+	            	 TextView title = (TextView) convertView.findViewById(R.id.textView);
+	            	 title.setText("Impressões, fotocópias, digitalização e encadernação");
+	            break;
+	            case 1:
+	            	convertView = infalInflater.inflate(R.layout.sf_go_pdf, null);
+	            break;
+	            case 2:
+	            	convertView = infalInflater.inflate(R.layout.sf_price, null);
+	            	 TextView title2 = (TextView) convertView.findViewById(R.id.textView);
+	            	 title2.setText("Folhas de testes, material de papelaria, material académico, cacifos e quotas");
+	            break;
+	            case 3:
+	            	convertView = infalInflater.inflate(R.layout.sf_go_pdf, null);
+	            break;
+	            default:
+	            }
+	            
+	         
+		}
+		if(groupPosition==1) {
+			convertView = null;
+	       
+	            switch(childPosition) {
+	            case 0:
+	            	convertView = infalInflater.inflate(R.layout.under_construction, null);
+	            break;
+	            
+	            default:
+	            }
+	            
+	         
+		}
+		if(groupPosition==2) {
+			convertView = null;
+	       
+	            switch(childPosition) {
+	            case 0:
+	            	convertView = infalInflater.inflate(R.layout.sf_studyroom_row, null);
+	            	 if (imageLoader == null)
+	                     imageLoader = AppController.getInstance().getImageLoader();
+	                 NetworkImageView thumbNail = (NetworkImageView) convertView
+	                         .findViewById(R.id.thumbnail);
+	                 TextView title = (TextView) convertView.findViewById(R.id.title);
+	                 TextView rating = (TextView) convertView.findViewById(R.id.rating);
+	                 
+	                 thumbNail.setImageUrl("http://193.136.198.90/aeist/mediaRep/editors/AEIST/InfoPelouros/Informacao/FotoSalaDeEstudo.jpg", imageLoader);
+	                 
+	                 // title
+	                 title.setText("Das 8h ás 21h");
+	                  
+	                 // Desc
+	                 rating.setText("Este espaço tem todas as condições necessárias para um dia de estudo,casas de banho próximas, vending machine e máquina de café. A lotação é de 42 pessoas. Durante a época de exames a sala está aberta até ás 3h da manha!");
+	            break;
+	            
+	            default:
+	            }
+	            
+	         
+		}
+		if(groupPosition==3) {
+			convertView = null;
+	            switch(childPosition) {
+	            case 0:
+	            	convertView = infalInflater.inflate(R.layout.sf_schedule_row, null);
+	            break;
+	            case 1:
+	            	convertView = infalInflater.inflate(R.layout.sf_contacts_row, null);
+	            break;
+	            
+	            default:
+	            }
+	            
+	         
+		}
 		
-		NetworkImageView thumbNail = (NetworkImageView) convertView
-				.findViewById(R.id.thumbnail);
-		thumbNail.setDefaultImageResId(R.drawable.loader);
-		thumbNail.setErrorImageResId(R.drawable.loader); */
-		TextView eventoNome = (TextView)convertView.findViewById(R.id.textView1);
-		TextView eventoDesc = (TextView)convertView.findViewById(R.id.textView2);
-		
-		eventoNome.setText(nome);
-		eventoDesc.setText(desc);
-		//thumbNail.setImageUrl(imageLink, imageLoader);
+		if(groupPosition==4) {
+			convertView = null;
+	            switch(childPosition) {
+	            case 0:
+	            	convertView = infalInflater.inflate(R.layout.sf_about_row, null);
+	            break;
+	            default:
+	            }
+	            
+	         
+		}
         return convertView;
     }
 
 	@Override
 	public int getChildrenCount(int groupPosition) {
-		return 1;
+		if(groupPosition==0) {
+			return 4;
+		} if(groupPosition==1) {
+			return 1;
+		} else if(groupPosition==2) {
+			return 1;
+		} else if(groupPosition==3) {
+			return 2;
+		} else if(groupPosition==4) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
 	}
 
 	@Override

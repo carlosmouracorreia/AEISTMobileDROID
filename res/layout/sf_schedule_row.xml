@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/servicos_list_selector"
+    android:padding="8dp" >
+ 
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/title"
+        android:text="Horário."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dip"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+    
+     <!-- Rating -->
+
+    <TextView
+        android:id="@+id/alameda"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="1dip"
+        android:gravity="right"
+        android:text="Alameda:"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+ 
+    <!-- Rating -->
+
+    <TextView
+        android:id="@+id/horario_alameda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/alameda"
+        android:layout_alignTop="@+id/alameda"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:text="2ª a 6ª feira das 8h30 às 17h00"
+        android:textSize="15sp" />
+    
+     <TextView
+         android:id="@+id/tagus"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/horario_alameda"
+         android:layout_marginRight="5dip"
+         android:layout_marginTop="8dip"
+         android:gravity="right"
+         android:text="TagusPark:"
+         android:textSize="15sp"
+         android:textStyle="bold" />
+ 
+    <!-- Rating -->
+
+    <TextView
+        android:id="@+id/horario_tagus1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignLeft="@+id/alameda"
+        android:layout_alignTop="@+id/tagus"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:text="2ª, 4º e 6ª das 9h30-13h e 14h-17h30"
+        android:textSize="15sp" />
+    
+    <TextView
+        android:id="@+id/horario_tagus2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignLeft="@+id/alameda"
+        android:layout_alignTop="@+id/horario_tagus1"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:text="3ª e 5ª das 9h30-13h e 14h-17h00"
+        android:textSize="15sp" />
+ 
+</RelativeLayout>

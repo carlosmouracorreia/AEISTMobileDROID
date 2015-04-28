@@ -7,6 +7,8 @@ import pt.aeist.mobile.R;
 import pt.aeist.mobile.eventos.EventosFrag;
 import pt.aeist.mobile.info.AeistFrag.PelAdapter;
 import pt.aeist.mobile.res.NextFragmentListener;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -17,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ListView;
 
 public class SFFrag extends Fragment {
@@ -45,7 +48,31 @@ public class SFFrag extends Fragment {
 	       serviceAdapter = new SFAdapter(getActivity());
      	   listaServicos.addHeaderView(header, null, false);
 	       listaServicos.setAdapter(serviceAdapter);
-	       listaServicos.expandGroup(3);
+	       listaServicos.setOnChildClickListener(new OnChildClickListener() {
+        		 
+               @Override
+               public boolean onChildClick(ExpandableListView parent, View v,
+                       int groupPosition, int childPosition, long id) {
+               	if(groupPosition==0 && childPosition==1) {
+               		final String googleDocsUrl = "http://docs.google.com/viewer?url=";
+               		final String url = "http://aeist.pt/mediaRep/editors/AEIST/Documentos/PrecarioSF1.pdf";
+               		Intent intent = new Intent(Intent.ACTION_VIEW);
+               		intent.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+               		startActivity(intent);
+               		
+               	}
+               	if(groupPosition==0 && childPosition==3) {
+               		final String googleDocsUrl = "http://docs.google.com/viewer?url=";
+               		final String url = "http://aeist.pt/mediaRep/editors/AEIST/Documentos/PrecarioSF2.pdf";
+               		Intent intent = new Intent(Intent.ACTION_VIEW);
+               		intent.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+               		startActivity(intent);
+               		
+               	}
+                   return false;
+               }
+           });
+	       listaServicos.expandGroup(4);
 		return rootView;
 	}
 

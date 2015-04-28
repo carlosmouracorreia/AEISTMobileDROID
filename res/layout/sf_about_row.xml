@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/servicos_list_selector"
+    android:padding="8dp" >
+ 
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/title"
+        android:text="A Secção de Folhas:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dip"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        android:layout_below="@id/title"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:text="• Funciona durante todo o ano lectivo"
+        android:textSize="15sp" />
+    
+     <TextView
+         android:id="@+id/about2"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/title"
+         android:layout_below="@id/about"
+         android:layout_marginTop="16dp"
+         android:gravity="right"
+         android:text="• Vende sebentas, folhas de ponto/exame e cadernos que precisas, a um passo, dentro dos dois campus do IST"
+         android:textSize="15sp" />
+     
+      <TextView
+        android:id="@+id/about3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/about2"
+        android:gravity="right"
+        android:text="• Permite-te fotocopiar, imprimir e fazer todo o tipo de acabamentos dos teus trabalhos aos preços mais competitivos da zona"
+        android:textSize="15sp" />
+      
+       <TextView
+        android:id="@+id/about4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/about3"
+        android:gravity="right"
+        android:text="• Provêm aos sócios da AEIST descontos (37,5%) em todos os seus serviços"
+        android:textSize="15sp" />
+    
+</RelativeLayout>
