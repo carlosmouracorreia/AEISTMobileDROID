@@ -44,7 +44,7 @@ public class DespFrag extends Fragment {
 	    serviceAdapter = new DespAdapter(getActivity());
   	    listaServicos.addHeaderView(header, null, false);
 	       listaServicos.setAdapter(serviceAdapter);
-	       listaServicos.expandGroup(3);
+	       listaServicos.expandGroup(4);
 		return rootView;
 	}
 
