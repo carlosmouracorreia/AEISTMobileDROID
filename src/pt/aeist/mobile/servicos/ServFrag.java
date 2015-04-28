@@ -84,7 +84,14 @@ public class ServFrag extends Fragment{
 		serv2.setThumbnailUrl("http://mobile.aeist.pt/assets/images/desp.jpg");
 		serv2.setDesc(_cont.getString(R.string.desportiva));
 		servicoList.add(serv2);
+		
+		
+		Servico serv3 = new Servico();
+		serv3.setTitle("GEFE");
+		serv3.setThumbnailUrl("http://mobile.aeist.pt/assets/images/gefe.jpg");
+		serv3.setDesc(_cont.getString(R.string.gefe));
 		adapter.notifyDataSetChanged();
+		servicoList.add(serv3);
 		return rootView;
 	}
 
