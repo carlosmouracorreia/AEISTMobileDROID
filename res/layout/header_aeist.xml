@@ -35,7 +35,7 @@
         android:layout_alignTop="@+id/pic"
         android:layout_toLeftOf="@+id/pic"
         android:layout_alignParentLeft="true"
-        android:text="Quem Somos? (:"
+        android:text="Quem Somos?"
         android:textColor="#040404"
         android:textSize="15sp"
         android:textStyle="bold|italic"
@@ -52,7 +52,7 @@
         android:layout_marginRight="3dip"
         android:layout_toLeftOf="@+id/pic"
         android:gravity="left"
-        android:text="A AEIST está dividida em vários pelouros para que nos possamos especializar/dividir nas várias àreas a que estão ligados os alunos desta instituição. Confere aqui a Direcção completa de 2014/15, bem como te podem ajudar no teu percurso no IST."
+        android:text="A AEIST está dividida em vários pelouros para que nos possamos especializar/dividir nas várias áreas a que estão ligados os alunos desta instituição. Confere aqui a Direcção completa de 2014/15, bem como te podem ajudar no teu percurso no IST."
         android:textColor="#000000"
         tools:ignore="HardcodedText" />
 

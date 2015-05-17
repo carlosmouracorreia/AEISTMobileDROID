@@ -174,7 +174,6 @@ public class AeistFrag extends Fragment {
 	        p2.addPessoa(new Pessoa("Maria de Almeida","Coordenadora","http://mobile.aeist.pt/dAEISTpics/pres/maria.jpg","maria.almeida@aeist.pt"));
 	        p2.addPessoa(new Pessoa("Carlos Correia","Vogal - Programador desta Aplicação","http://mobile.aeist.pt/dAEISTpics/gs/eu.jpg","carlos.correia@aeist.pt"));
 	        p2.addPessoa(new Pessoa("Diogo Costa","Vogal","http://mobile.aeist.pt/dAEISTpics/gs/diogo_costa.jpg","diogo.costa@aeist.pt"));
-	        p2.addPessoa(new Pessoa("Carlos Almeida","Vogal","","carlos.almeida@aeist.pt"));
 	        p2.addPessoa(new Pessoa("José Barbosa","Colaborador","http://mobile.aeist.pt/dAEISTpics/gs/joka.jpg","jose.barbosa@aeist.pt"));
 	        p2.addPessoa(new Pessoa("Carlos Costa","Colaborador","","carlos.costa@aeist.pt"));
 	        p2.addPessoa(new Pessoa("Rafael Schimassek","Colaborador","http://mobile.aeist.pt/dAEISTpics/gs/schima.jpg","rafael.schimassek@aeist.pt"));
@@ -183,12 +182,12 @@ public class AeistFrag extends Fragment {
 	        
 	        PelouroContainer p3 = new PelouroContainer("Comunicação");
 	        p3.addPessoa(new Pessoa("Catarina Almeida","Coordenadora","http://mobile.aeist.pt/dAEISTpics/comunic/catalmeida.jpg","catarina.almeida@aeist.pt"));
-	        p3.addPessoa(new Pessoa("Inês Urbano","Vogal","http://mobile.aeist.pt/dAEISTpics/comunic/urbano.jpg","ines.urbano@aeist.pt"));
+	       	p3.addPessoa(new Pessoa("Mariana Loureiro","Vogal","http://mobile.aeist.pt/dAEISTpics/comunic/marianaloureiro.jpg","mariana.loureiro@aeist.pt"));
 	        p3.addPessoa(new Pessoa("Beatriz Matafome","Vogal","http://mobile.aeist.pt/dAEISTpics/comunic/matafome.jpg","beatriz.matafome@aeist.pt"));
 	        p3.addPessoa(new Pessoa("Mariana Patanita","Vogal","http://mobile.aeist.pt/dAEISTpics/comunic/patanita.jpg","mariana.patanita@aeist.pt"));
 	        p3.addPessoa(new Pessoa("João Tomázio","Colaborador","http://mobile.aeist.pt/dAEISTpics/comunic/tomazio.jpg","joao.tomazio@aeist.pt"));
 	        p3.addPessoa(new Pessoa("Laura Silva","Colaboradora","http://mobile.aeist.pt/dAEISTpics/comunic/laurasilva.jpg","laura.silva@aeist.pt"));
-	        p3.addPessoa(new Pessoa("Mariana Loureiro","Colaboradora","http://mobile.aeist.pt/dAEISTpics/comunic/marianaloureiro.jpg","mariana.loureiro@aeist.pt"));
+	        p3.addPessoa(new Pessoa("Inês Urbano","Colaboradora","http://mobile.aeist.pt/dAEISTpics/comunic/urbano.jpg","ines.urbano@aeist.pt"));
 	        pelouroList.add(p3);
 	        
 	        PelouroContainer p4 = new PelouroContainer("Desporto");
