@@ -1,5 +1,6 @@
 package pt.aeist.mobile.info;
 
+import pt.aeist.mobile.ActInicio;
 import pt.aeist.mobile.R;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,8 +11,16 @@ import android.view.ViewGroup;
 
 public class AEFrag extends Fragment {
 	 private FragmentTabHost mTabHost;
-	 
-	 @Override
+
+
+	@Override
+	public void setMenuVisibility(boolean menuVisible) {
+		super.setMenuVisibility(menuVisible);
+		if(menuVisible)
+			ActInicio.getInstance().getMenu().getItem(0).setVisible(false);
+	}
+
+	@Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            Bundle savedInstanceState) {
 	 

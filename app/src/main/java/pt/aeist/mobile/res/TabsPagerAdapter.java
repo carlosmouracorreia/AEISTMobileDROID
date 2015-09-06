@@ -5,6 +5,7 @@ package pt.aeist.mobile.res;
 
 import pt.aeist.mobile.R;
 import pt.aeist.mobile.info.AEFrag;
+import pt.aeist.mobile.info.AeistFrag;
 import pt.aeist.mobile.servicos.DespFrag;
 import pt.aeist.mobile.servicos.RecFrag;
 import pt.aeist.mobile.servicos.SFFrag;
@@ -37,7 +38,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
              }
              return mFragmentAtPos0;
         case 2:
-            return new AEFrag();
+            return new AeistFrag();
         }
  
         return null;

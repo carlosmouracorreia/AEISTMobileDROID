@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import pt.aeist.mobile.ActInicio;
 import pt.aeist.mobile.R;
 import pt.aeist.mobile.res.AppController;
 
@@ -42,8 +43,13 @@ public class EventosFrag extends Fragment {
 	private ExpandableListView listaEventos;
 	private EventoExpAdapter eventosListAdapter;
 	private Map<Integer,EventoContainer> eventosList;
-	
-	
+
+	@Override
+	public void setMenuVisibility(boolean menuVisible) {
+		super.setMenuVisibility(menuVisible);
+		if(menuVisible && ActInicio.getInstance().getMenu()!=null)
+			ActInicio.getInstance().getMenu().getItem(0).setVisible(false);
+	}
 	
 	public void doAfter(final LayoutInflater inflater) {
 		 JsonArrayRequest req2 = new JsonArrayRequest(url2,

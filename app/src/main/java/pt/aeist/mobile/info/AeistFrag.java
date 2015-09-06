@@ -6,6 +6,7 @@ import java.util.List;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 
+import pt.aeist.mobile.ActInicio;
 import pt.aeist.mobile.R;
 import pt.aeist.mobile.res.AppController;
 import android.content.Context;
@@ -26,8 +27,16 @@ public class AeistFrag extends Fragment {
 	private PelAdapter pelListAdapter;
 	private List<PelouroContainer> pelouroList;
 	private ImageLoader imageLoader = AppController.getInstance().getImageLoader();
-	
-	
+
+	@Override
+	public void setMenuVisibility(boolean menuVisible) {
+		super.setMenuVisibility(menuVisible);
+		if(menuVisible)
+			ActInicio.getInstance().getMenu().getItem(0).setVisible(false);
+	}
+
+
+
 	public class PelAdapter extends BaseExpandableListAdapter {
 
 		@Override
@@ -165,9 +174,9 @@ public class AeistFrag extends Fragment {
 	        pelouroList = new ArrayList<PelouroContainer>();
 	        
 	        PelouroContainer p1 = new PelouroContainer("Presidência");
-	        p1.addPessoa(new Pessoa("Pedro Sereno","Presidente","http://mobile.aeist.pt/dAEISTpics/pres/sereno.jpg","pedro.sereno@aeist.pt"));
-	        p1.addPessoa(new Pessoa("Marco Gomes","Vice-Presidente da Administração Financeira","http://mobile.aeist.pt/dAEISTpics/pres/marco.jpg","marco.gomes@aeist.pt"));
-	        p1.addPessoa(new Pessoa("Maria de Almeida","Vice-Presidente da Gestão","http://mobile.aeist.pt/dAEISTpics/pres/maria.jpg","maria.almeida@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Rodrigo Barbosa","Presidente","","rodrigo.barbosa@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Ricardo Lopes","Vice-Presidente","","ricardo.lopes@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Marta Brissos Santos","Tesoureira","","marta.brissos@aeist.pt"));
 	        pelouroList.add(p1);
 	        
 	        PelouroContainer p2 = new PelouroContainer("Gestão e Serviços");
@@ -199,11 +208,14 @@ public class AeistFrag extends Fragment {
 	        pelouroList.add(p4);
 	        
 	        PelouroContainer p5 = new PelouroContainer("GEFE");
-	        p5.addPessoa(new Pessoa("Maria Tavares","Coordenadora","http://mobile.aeist.pt/dAEISTpics/gefe/mariatavares.jpg","maria.tavares@aeist.pt"));
-	        p5.addPessoa(new Pessoa("Nuno Bajanca","Vogal","http://mobile.aeist.pt/dAEISTpics/gefe/nunobajanca.jpg","nuno.bajanca@aeist.pt"));
-	        p5.addPessoa(new Pessoa("José Rego","Vogal","http://mobile.aeist.pt/dAEISTpics/gefe/joserego.jpg","jose.rego@aeist.pt"));
-	        p5.addPessoa(new Pessoa("Laura Barroso","Vogal","http://mobile.aeist.pt/dAEISTpics/gefe/laurabarroso.jpg","laura.barroso@aeist.pt"));
-	        p5.addPessoa(new Pessoa("Andreia Santos","Colaboradora","http://mobile.aeist.pt/dAEISTpics/gefe/andreiasantos.jpg","andreia.santos@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Mafalda Ramos","Coordenadora","","mafalda.ramos@aeist.pt"));
+	        p5.addPessoa(new Pessoa("João Dionísio","Vogal","","joao.dionisio@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Constança Barroso","Vogal","","constanca.barroso@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Duarte Soares","Vogal","","duarte.soares@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Francisco Agostinho","Colaborador","","francisco.agostinho@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Filipa Dias","Colaboradora","","filipa.dias@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Andrei Negara","Colaborador","","andrei.negara@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Miguel Cunha","Colaborador","","miguel.cunha@aeist.pt"));
 	        pelouroList.add(p5);
 	        
 	        PelouroContainer p8 = new PelouroContainer("Política Educativa");
@@ -242,7 +254,7 @@ public class AeistFrag extends Fragment {
 	        pelouroList.add(p10);
 	        
 	        PelouroContainer p11 = new PelouroContainer("Taguspark");
-	        p11.addPessoa(new Pessoa("João Valado","Coordenador","http://mobile.aeist.pt/dAEISTpics/joaovalado.jpg","joao.valado@aeist.pt"));
+	        p11.addPessoa(new Pessoa("Pedro Reganha","Coordenador","","pedro.reganha@aeist.pt"));
 	        pelouroList.add(p11);
 	        
 	        

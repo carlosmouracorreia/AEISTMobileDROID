@@ -17,6 +17,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 
 public class ActInicio extends ActionBarActivity implements
@@ -28,9 +31,15 @@ public class ActInicio extends ActionBarActivity implements
 	private static ActInicio mInstance;
 	private String[] tabs = { "Eventos", "Serviços", "A AEIST" };
 	private boolean firstRun = true;
+	private Menu menu;
 	
 	public static synchronized ActInicio getInstance() {
 		return mInstance;
+	}
+
+
+	public Menu getMenu() {
+		return menu;
 	}
 	
     Handler mHandler = new Handler()
@@ -89,14 +98,13 @@ public class ActInicio extends ActionBarActivity implements
 		//inicializacao
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getSupportActionBar();
-		
+
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		getSupportActionBar().setLogo(R.drawable.ic_launcher);
 		getSupportActionBar().setDisplayUseLogoEnabled(true);
-		
+
 		mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(mAdapter);
-		actionBar.setHomeButtonEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		
 		//Adicionar Tabs
@@ -155,6 +163,25 @@ public class ActInicio extends ActionBarActivity implements
 	    	return viewPager;
 	    }
 
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu items for use in the action bar
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.act_inicio, menu);
+		this.menu = menu;
+
+		menu.getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+
+			@Override
+			public boolean onMenuItemClick(MenuItem item) {
+				ActInicio.getInstance().onBackPressed();
+				return true;
+			}
+		});
+
+		return super.onCreateOptionsMenu(menu);
+	}
 	
 
 }

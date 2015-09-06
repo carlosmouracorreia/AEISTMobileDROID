@@ -1540,20 +1540,21 @@ containing a value of this type.
         public static final int centenario=0x7f02003e;
         public static final int desportiva=0x7f02003f;
         public static final int entrada=0x7f020040;
-        public static final int ic_action_event=0x7f020041;
-        public static final int ic_action_go_to_today=0x7f020042;
-        public static final int ic_action_web_site=0x7f020043;
-        public static final int ic_launcher=0x7f020044;
-        public static final int loader=0x7f020045;
-        public static final int logo_desportiva=0x7f020046;
-        public static final int logo_sfolhas=0x7f020047;
-        public static final int notification_template_icon_bg=0x7f02004e;
-        public static final int recreativa=0x7f020048;
-        public static final int servicos_list_bg=0x7f020049;
-        public static final int servicos_list_hover=0x7f02004a;
-        public static final int servicos_list_selector=0x7f02004b;
-        public static final int sf=0x7f02004c;
-        public static final int splash=0x7f02004d;
+        public static final int ic_action_back=0x7f020041;
+        public static final int ic_action_event=0x7f020042;
+        public static final int ic_action_go_to_today=0x7f020043;
+        public static final int ic_action_web_site=0x7f020044;
+        public static final int ic_launcher=0x7f020045;
+        public static final int loader=0x7f020046;
+        public static final int logo_desportiva=0x7f020047;
+        public static final int logo_sfolhas=0x7f020048;
+        public static final int notification_template_icon_bg=0x7f02004f;
+        public static final int recreativa=0x7f020049;
+        public static final int servicos_list_bg=0x7f02004a;
+        public static final int servicos_list_hover=0x7f02004b;
+        public static final int servicos_list_selector=0x7f02004c;
+        public static final int sf=0x7f02004d;
+        public static final int splash=0x7f02004e;
     }
     public static final class id {
         public static final int about=0x7f0b0053;
@@ -1561,6 +1562,7 @@ containing a value of this type.
         public static final int about3=0x7f0b0072;
         public static final int about4=0x7f0b0076;
         public static final int action0=0x7f0b0066;
+        public static final int action_back=0x7f0b0078;
         public static final int action_bar=0x7f0b0040;
         public static final int action_bar_activity_content=0x7f0b0000;
         public static final int action_bar_container=0x7f0b003f;
@@ -1575,7 +1577,6 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0b003d;
         public static final int action_mode_bar_stub=0x7f0b003c;
         public static final int action_mode_close_button=0x7f0b0025;
-        public static final int action_settings=0x7f0b0078;
         public static final int activity_chooser_view_content=0x7f0b0026;
         public static final int alameda=0x7f0b0055;
         public static final int alertTitle=0x7f0b0030;

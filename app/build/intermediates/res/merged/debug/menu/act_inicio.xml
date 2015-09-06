@@ -4,10 +4,11 @@
     tools:context="pt.aeist.mobile.ActInicio" >
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
+        android:id="@+id/action_back"
+        android:icon="@drawable/ic_action_back"
+        android:title="Back"
+        android:visible="false"
+        app:showAsAction="always"/>
 
 </menu>
 <!-- From: file:/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/src/main/res/menu/act_inicio.xml -->
