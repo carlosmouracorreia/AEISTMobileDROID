@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/servicos_list_selector"
+    android:padding="8dp" >
+ 
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/title"
+        android:text="Fica a saber:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dip"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+    
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        android:layout_below="@id/title"
+        android:layout_marginTop="16dp"
+        android:gravity="right"
+        android:text="• Se praticas algum dos desportos existentes e tens vontade de representar a tua escola a nível regional e nacional, não hesites: dirige-te ao balcão da Desportiva no piso -1 do pavilhão da AEIST e lá terás respostas às tuas dúvidas"
+        android:textSize="15sp" />
+    
+     <TextView
+         android:id="@+id/about2"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/title"
+         android:layout_below="@id/about"
+         android:layout_marginTop="16dp"
+         android:gravity="right"
+         android:text="• Se estás interessado em praticar algum Desporto que actualmente não existe no IST, dirige-te à AEIST e fala com um dos responsáveis pela Desportiva que nós cá estaremos para discutir a viabilidade desse novo projecto"
+         android:textSize="15sp" />
+</RelativeLayout><!-- From: file:/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/src/main/res/layout/desp_about_row.xml -->

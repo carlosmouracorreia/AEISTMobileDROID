@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="#ffffff"
+    android:padding="5dp" >
+
+  
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/pic"
+        android:layout_toLeftOf="@+id/pic"
+        android:layout_alignParentLeft="true"
+        android:text="Bem Vindos!"
+        android:textColor="#040404"
+        android:textSize="15sp"
+        android:textStyle="bold|italic"
+        android:typeface="sans"
+        tools:ignore="HardcodedText" />
+
+  
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginRight="3dip"
+        android:layout_toLeftOf="@+id/pic"
+        android:gravity="left"
+        android:text="Podes encontrar neste espaço informação centralizada relativa aos eventos que estão na berra, providos ou afiliados à AEIST."
+        android:textColor="#000000"
+        tools:ignore="HardcodedText" />
+
+     <TextView
+         android:id="@+id/title2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/info"
+         android:text="(Toca nos eventos para obter mais informações)"
+         android:textColor="#040404"
+         android:textSize="11sp"
+         android:textStyle="bold|italic"
+         android:typeface="sans"
+         tools:ignore="HardcodedText" />
+ 
+</RelativeLayout><!-- From: file:/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/src/main/res/layout/header_eventos.xml -->

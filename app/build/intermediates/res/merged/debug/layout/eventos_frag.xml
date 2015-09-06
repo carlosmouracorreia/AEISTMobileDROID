@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e5e6eb"
+    android:orientation="vertical" >
+     
+   <ExpandableListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+     
+ 
+</RelativeLayout><!-- From: file:/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/src/main/res/layout/eventos_frag.xml -->
