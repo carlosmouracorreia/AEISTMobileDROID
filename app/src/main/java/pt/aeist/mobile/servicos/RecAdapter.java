@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import pt.aeist.mobile.ActInicio;
 import pt.aeist.mobile.R;
 import pt.aeist.mobile.eventos.EventoContainer;
 import pt.aeist.mobile.info.AeistFrag.Pessoa;
@@ -20,6 +21,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -113,51 +116,18 @@ public class RecAdapter extends BaseExpandableListAdapter {
 	
 	
 	private Activity _act;
+	private ExpandableListView listA;
 	private List<MiscContainer> _container = new ArrayList<MiscContainer>();	
 	
 	
 	private List<Churrasco> _churrascos;
-	public RecAdapter(Activity act) {
-		_act = act;
+	public RecAdapter(Activity act,ExpandableListView list) {
+		this._act = act;
+		this.listA = list;
 		 _churrascos = new ArrayList<Churrasco>();
 		//fetch data from web
-		AppController.getInstance().initpDialog(_act);
-        AppController.getInstance().showpDialog();
-		JsonArrayRequest req = new JsonArrayRequest(url,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                      
-                       
-                        try {
-	                        for (int i = 0; i < response.length(); i++) {
-	                        	final Churrasco _churr = new Churrasco();
-	                            JSONObject evento = (JSONObject) response.get(i);
-	                            _churr.set_name(evento.getString("name"));
-	                            _churr.set_desc(evento.getString("desc"));
-	                            _churr.set_urlFoto(evento.getString("urlFoto"));
-	                            _churr.set_dia(evento.getString("dia"));
-	                            _churrascos.add(_churr);
-	                        }
-                        
-                        } catch(JSONException e) { 
-                        	e.printStackTrace();
-                            Toast.makeText(_act.getApplicationContext(),
-                                    "Error: " + e.getMessage(),
-                                    Toast.LENGTH_LONG).show();
-                        }
-                        AppController.getInstance().hidepDialog();
-                        RecFrag.getInstance().dumbMove();
-                        }
-                    }
-                , new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //VolleyLog.d(TAG, "Erroir: " + error.getMessage());
-                        AppController.getInstance().hidepDialog();
-                    }
-                });
-        AppController.getInstance().addToRequestQueue(req);
+        ActInicio.getInstance().showpDialog();
+
 
 		//end
 		MiscContainer inst = new ServicoContainer("Informações e contactos");
@@ -174,6 +144,45 @@ public class RecAdapter extends BaseExpandableListAdapter {
 		} else {
 			return _churrascos.get(childPosition);
 		}
+	}
+
+	public void fetchData() {
+		JsonArrayRequest req = new JsonArrayRequest(url,
+				new Response.Listener<JSONArray>() {
+					@Override
+					public void onResponse(JSONArray response) {
+
+
+						try {
+							for (int i = 0; i < response.length(); i++) {
+								final Churrasco _churr = new Churrasco();
+								JSONObject evento = (JSONObject) response.get(i);
+								_churr.set_name(evento.getString("name"));
+								_churr.set_desc(evento.getString("desc"));
+								_churr.set_urlFoto(evento.getString("urlFoto"));
+								_churr.set_dia(evento.getString("dia"));
+								_churrascos.add(_churr);
+							}
+							notifyDataSetChanged();
+
+						} catch(JSONException e) {
+							e.printStackTrace();
+							Toast.makeText(_act.getApplicationContext(),
+									"Error: " + e.getMessage(),
+									Toast.LENGTH_LONG).show();
+						}
+						ActInicio.getInstance().hidepDialog();
+						listA.expandGroup(1);
+					}
+				}
+				, new Response.ErrorListener() {
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				//VolleyLog.d(TAG, "Erroir: " + error.getMessage());
+				AppController.getInstance().hidepDialog();
+			}
+		});
+		AppController.getInstance().addToRequestQueue(req);
 	}
 
 	@Override

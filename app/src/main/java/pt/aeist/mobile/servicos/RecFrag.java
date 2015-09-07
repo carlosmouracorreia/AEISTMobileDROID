@@ -51,22 +51,22 @@ public class RecFrag extends Fragment {
 		 listaRec = (ExpandableListView)rootView.findViewById(R.id.listView2);
        ViewGroup header = (ViewGroup) inflater.inflate(R.layout.header_rec_frag, listaRec,
               false);
-       _recAdapter = new RecAdapter(getActivity());
+       _recAdapter = new RecAdapter(getActivity(),listaRec);
+        _recAdapter.fetchData();
   	   listaRec.addHeaderView(header, null, false);
        listaRec.setAdapter(_recAdapter);
        return rootView;
 	}
 
 
-    @Override
+   @Override
     public void setMenuVisibility(boolean menuVisible) {
         super.setMenuVisibility(menuVisible);
-        ActInicio.getInstance().getMenu().getItem(0).setVisible(menuVisible);
+       if(!ActInicio.getInstance().toBbq())
+         ActInicio.getInstance().getMenu().getItem(0).setVisible(menuVisible);
     }
 
-    public void dumbMove() {
-		listaRec.expandGroup(1);
-	}
+
 	  public void backPressed() {
 	        firstPageListener.onSwitchToNextFragment("root");
 	    }

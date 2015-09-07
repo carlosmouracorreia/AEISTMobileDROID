@@ -3,6 +3,7 @@ package pt.aeist.mobile.servicos;
 import java.util.ArrayList;
 import java.util.List;
 
+import pt.aeist.mobile.ActInicio;
 import pt.aeist.mobile.R;
 import pt.aeist.mobile.eventos.EventosFrag;
 import pt.aeist.mobile.res.NextFragmentListener;
@@ -33,11 +34,12 @@ public class ServFrag extends Fragment{
 	public ServFrag() {
     }
 
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-        _cont = getActivity().getApplicationContext();
+
+		_cont = getActivity().getApplicationContext();
 		View rootView = inflater.inflate(R.layout.serv_frag, container, false);
 		listView = (ListView) rootView.findViewById(R.id.list);
 		/*
@@ -90,8 +92,10 @@ public class ServFrag extends Fragment{
 		serv3.setTitle("GEFE");
 		serv3.setThumbnailUrl("http://mobile.aeist.pt/assets/images/gefe.jpg");
 		serv3.setDesc(_cont.getString(R.string.gefe));
-		adapter.notifyDataSetChanged();
 		servicoList.add(serv3);
+
+		adapter.notifyDataSetChanged();
+
 		return rootView;
 	}
 

@@ -3,6 +3,7 @@ package pt.aeist.mobile.res;
 
 //import pt.aeist.mobile.EmentasFrag;
 
+import pt.aeist.mobile.ActInicio;
 import pt.aeist.mobile.R;
 import pt.aeist.mobile.info.AEFrag;
 import pt.aeist.mobile.info.AeistFrag;
@@ -34,7 +35,11 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
         case 1:
         	 if (mFragmentAtPos0 == null)
              {
-                 mFragmentAtPos0 = ServFrag.newInstance(listener);
+                if(ActInicio.getInstance().toBbq()) {
+                    mFragmentAtPos0 = RecFrag.newInstance(listener);
+                }
+                 else
+                    mFragmentAtPos0 = ServFrag.newInstance(listener);
              }
              return mFragmentAtPos0;
         case 2:

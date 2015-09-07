@@ -23,7 +23,7 @@ public class Splash extends Activity {
 	}
 	
    public void startApp() {
-	 startActivity(new Intent("pt.aeist.mobile.START"));
+	 startActivity(new Intent("pt.aeist.mobile.START").putExtra("bbq",false));
      finish();
    }
 

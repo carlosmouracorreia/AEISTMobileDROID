@@ -174,87 +174,109 @@ public class AeistFrag extends Fragment {
 	        pelouroList = new ArrayList<PelouroContainer>();
 	        
 	        PelouroContainer p1 = new PelouroContainer("Presidência");
-	        p1.addPessoa(new Pessoa("Rodrigo Barbosa","Presidente","","rodrigo.barbosa@aeist.pt"));
-	        p1.addPessoa(new Pessoa("Ricardo Lopes","Vice-Presidente","","ricardo.lopes@aeist.pt"));
-	        p1.addPessoa(new Pessoa("Marta Brissos Santos","Tesoureira","","marta.brissos@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Rodrigo Barbosa","Presidente","http://mobile.aeist.pt/dAEISTpics/2015/pres/rodrigobarbosa.png","rodrigo.barbosa@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Ricardo Lopes", "Vice-Presidente", "http://mobile.aeist.pt/dAEISTpics/2015/pres/ricardolopes.png", "ricardo.lopes@aeist.pt"));
+	        p1.addPessoa(new Pessoa("Marta Brissos Santos","Tesoureira","http://mobile.aeist.pt/dAEISTpics/2015/pres/martabrissos.png","marta.brissos@aeist.pt"));
 	        pelouroList.add(p1);
 	        
 	        PelouroContainer p2 = new PelouroContainer("Gestão e Serviços");
-	        p2.addPessoa(new Pessoa("Maria de Almeida","Coordenadora","http://mobile.aeist.pt/dAEISTpics/pres/maria.jpg","maria.almeida@aeist.pt"));
-	        p2.addPessoa(new Pessoa("Carlos Correia","Vogal - Programador desta Aplicação","http://mobile.aeist.pt/dAEISTpics/gs/eu.jpg","carlos.correia@aeist.pt"));
-	        p2.addPessoa(new Pessoa("Diogo Costa","Vogal","http://mobile.aeist.pt/dAEISTpics/gs/diogo_costa.jpg","diogo.costa@aeist.pt"));
-	        p2.addPessoa(new Pessoa("José Barbosa","Colaborador","http://mobile.aeist.pt/dAEISTpics/gs/joka.jpg","jose.barbosa@aeist.pt"));
-	        p2.addPessoa(new Pessoa("Carlos Costa","Colaborador","","carlos.costa@aeist.pt"));
-	        p2.addPessoa(new Pessoa("Rafael Schimassek","Colaborador","http://mobile.aeist.pt/dAEISTpics/gs/schima.jpg","rafael.schimassek@aeist.pt"));
+	        p2.addPessoa(new Pessoa("Pedro Santos","Coordenador","http://mobile.aeist.pt/dAEISTpics/2015/gs/pedrosantos.png","pedro.santos@aeist.pt"));
+	       // p2.addPessoa(new Pessoa("Carlos Correia","Colaborador - Programador desta Aplicação","http://mobile.aeist.pt/dAEISTpics/gs/eu.jpg","carlos.correia@aeist.pt"));
+	        p2.addPessoa(new Pessoa("Miguel Abelho", "Vogal", "http://mobile.aeist.pt/dAEISTpics/2015/gs/miguelabelho.jpg", "miguel.abelho@aeist.pt"));
+	        p2.addPessoa(new Pessoa("José Magalhães","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/gs/josemagalhaes.jpg","jose.magalhaes@aeist.pt"));
+	        p2.addPessoa(new Pessoa("José Damasceno","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/gs/josedamasceno.jpg","jose.damasceno@aeist.pt"));
+	        p2.addPessoa(new Pessoa("Diogo Mendes","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/gs/diogomendes.jpg","diogo.mendes@aeist.pt"));
+	        p2.addPessoa(new Pessoa("Laura Silva", "Colaboradora", "http://mobile.aeist.pt/dAEISTpics/2015/gs/laurasilva.jpg", "laura.silva@aeist.pt"));
+	        p2.addPessoa(new Pessoa("Laura Barroso","Colaboradora","http://mobile.aeist.pt/dAEISTpics/2015/gs/laurabarroso.jpg","laura.barroso@aeist.pt"));
 	        pelouroList.add(p2);
-	        
-	        
-	        PelouroContainer p3 = new PelouroContainer("Comunicação");
-	        p3.addPessoa(new Pessoa("Catarina Almeida","Coordenadora","http://mobile.aeist.pt/dAEISTpics/comunic/catalmeida.jpg","catarina.almeida@aeist.pt"));
-	       	p3.addPessoa(new Pessoa("Mariana Loureiro","Vogal","http://mobile.aeist.pt/dAEISTpics/comunic/marianaloureiro.jpg","mariana.loureiro@aeist.pt"));
-	        p3.addPessoa(new Pessoa("Beatriz Matafome","Vogal","http://mobile.aeist.pt/dAEISTpics/comunic/matafome.jpg","beatriz.matafome@aeist.pt"));
-	        p3.addPessoa(new Pessoa("Mariana Patanita","Vogal","http://mobile.aeist.pt/dAEISTpics/comunic/patanita.jpg","mariana.patanita@aeist.pt"));
-	        p3.addPessoa(new Pessoa("João Tomázio","Colaborador","http://mobile.aeist.pt/dAEISTpics/comunic/tomazio.jpg","joao.tomazio@aeist.pt"));
-	        p3.addPessoa(new Pessoa("Laura Silva","Colaboradora","http://mobile.aeist.pt/dAEISTpics/comunic/laurasilva.jpg","laura.silva@aeist.pt"));
-	        p3.addPessoa(new Pessoa("Inês Urbano","Colaboradora","http://mobile.aeist.pt/dAEISTpics/comunic/urbano.jpg","ines.urbano@aeist.pt"));
-	        pelouroList.add(p3);
+
+			PelouroContainer p3 = new PelouroContainer("Comunicação");
+			p3.addPessoa(new Pessoa("Patrícia Silva","Coordenadora","http://mobile.aeist.pt/dAEISTpics/2015/comunicacao/patriciasilva.png","patricia.silva@aeist.pt"));
+			p3.addPessoa(new Pessoa("Sara Pereira","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/comunicacao/sarapereira.jpg","sara.pereira@aeist.pt"));
+			p3.addPessoa(new Pessoa("David Cavaco","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/comunicacao/davidcavaco.jpg","david.cavaco@aeist.pt"));
+			p3.addPessoa(new Pessoa("Pedro Carvalho","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/comunicacao/pedrocarvalho.jpg","pedro.carvalho@aeist.pt"));
+			p3.addPessoa(new Pessoa("André Monteiro", "Colaborador", "http://mobile.aeist.pt/dAEISTpics/2015/comunicacao/andremonteiro.jpg", "andre.monteiro@aeist.pt"));
+			p3.addPessoa(new Pessoa("Sofia Martins","Colaboradora","http://mobile.aeist.pt/dAEISTpics/2015/comunicacao/sofiamartins.jpg","sofia.martins@aeist.pt"));
+			p3.addPessoa(new Pessoa("Patrícia Ferreira","Colaboradora","http://mobile.aeist.pt/dAEISTpics/2015/comunicacao/patriciaferreira.jpg","patricia.ferreira@aeist.pt"));
+			p3.addPessoa(new Pessoa("Nuno Silva","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/comunicacao/nunosilva.jpg","nuno.silva@aeist.pt"));
+			p3.addPessoa(new Pessoa("Ana Raposo", "Colaboradora", "http://mobile.aeist.pt/dAEISTpics/2015/comunicacao/anaraposo.jpg", "ana.raposo@aeist.pt"));
+			p3.addPessoa(new Pessoa("Briana Vieira","Colaboradora","http://mobile.aeist.pt/dAEISTpics/2015/comunicacao/brianavieira.jpg","briana.vieira@aeist.pt"));
+			pelouroList.add(p3);
+
+
+			PelouroContainer p9 = new PelouroContainer("Informática");
+			p9.addPessoa(new Pessoa("Carlos Branco","Coordenador","http://mobile.aeist.pt/dAEISTpics/2015/info/carlosbranco.png","carlos.branco@aeist.pt"));
+			p9.addPessoa(new Pessoa("André Mendonça", "Colaborador", "http://mobile.aeist.pt/dAEISTpics/2015/info/andremendonca.jpg", "andre.mendonca@aeist.pt"));
+			p9.addPessoa(new Pessoa("João Pestana","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/info/joaopestana.jpg","joao.pestana@aeist.pt"));
+			p9.addPessoa(new Pessoa("Leo Valente","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/info/leovalente.jpg","leo.valente@aeist.pt"));
+			p9.addPessoa(new Pessoa("Diogo Monteiro","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/info/diogomonteiro.jpg","diogo.monteiro@aeist.pt"));
+			p9.addPessoa(new Pessoa("André Faustino", "Colaborador", "http://mobile.aeist.pt/dAEISTpics/2015/info/andrefaustino.jpg", "andre.faustino@aeist.pt"));
+			p9.addPessoa(new Pessoa("Alexandr Ignatiev","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/info/alexandrignatiev.jpg","alexandr.ignatiev@aeist.pt"));
+			pelouroList.add(p9);
+
 	        
 	        PelouroContainer p4 = new PelouroContainer("Desporto");
-	        p4.addPessoa(new Pessoa("Rodrigo Lourenço","Coordenador","http://mobile.aeist.pt/dAEISTpics/desporto/rodrigolourenco.jpg","rodrigo.lourenco@aeist.pt"));
-	        p4.addPessoa(new Pessoa("Afonso Gonçalves","Vogal","http://mobile.aeist.pt/dAEISTpics/desporto/afonsogoncalves.jpg","afonso.goncalves@aeist.pt"));
-	        p4.addPessoa(new Pessoa("Inês Daniel","Colaboradora","http://mobile.aeist.pt/dAEISTpics/desporto/inesdaniel.jpg","ines.daniel@aeist.pt"));
-	        p4.addPessoa(new Pessoa("Ricardo Almeida","Colaborador","http://mobile.aeist.pt/dAEISTpics/desporto/ricardoalmeida.jpg","ricardo.almeida@aeist.pt"));
-	        p4.addPessoa(new Pessoa("João Reis","Colaborador","http://mobile.aeist.pt/dAEISTpics/desporto/joaoreis.jpg","joao.reis@aeist.pt"));
+	        p4.addPessoa(new Pessoa("João Formiga","Coordenador","http://mobile.aeist.pt/dAEISTpics/2015/desporto/joaoformiga.jpg","joao.formiga@aeist.pt"));
+	        p4.addPessoa(new Pessoa("André Santos","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/desporto/andresantos.jpg","andre.santos@aeist.pt"));
+	        p4.addPessoa(new Pessoa("André Lopes","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/desporto/andrelopes.jpg","andre.lopes@aeist.pt"));
+	        p4.addPessoa(new Pessoa("Alexandre Passo","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/desporto/alexandrepasso.jpg","alexandre.passo@aeist.pt"));
+	        p4.addPessoa(new Pessoa("André Korolev","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/desporto/andrekorolev.jpg","andre.korolev@aeist.pt"));
+	        p4.addPessoa(new Pessoa("Renato Amorim","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/desporto/renatoamorim.jpg","renato.amorim@aeist.pt"));
+	        p4.addPessoa(new Pessoa("Guilherme Nogueira","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/desporto/guilhermenogueira.jpg","guilherme.nogueira@aeist.pt"));
 	        pelouroList.add(p4);
 	        
 	        PelouroContainer p5 = new PelouroContainer("GEFE");
-	        p5.addPessoa(new Pessoa("Mafalda Ramos","Coordenadora","","mafalda.ramos@aeist.pt"));
-	        p5.addPessoa(new Pessoa("João Dionísio","Vogal","","joao.dionisio@aeist.pt"));
-	        p5.addPessoa(new Pessoa("Constança Barroso","Vogal","","constanca.barroso@aeist.pt"));
-	        p5.addPessoa(new Pessoa("Duarte Soares","Vogal","","duarte.soares@aeist.pt"));
-	        p5.addPessoa(new Pessoa("Francisco Agostinho","Colaborador","","francisco.agostinho@aeist.pt"));
-	        p5.addPessoa(new Pessoa("Filipa Dias","Colaboradora","","filipa.dias@aeist.pt"));
-	        p5.addPessoa(new Pessoa("Andrei Negara","Colaborador","","andrei.negara@aeist.pt"));
-	        p5.addPessoa(new Pessoa("Miguel Cunha","Colaborador","","miguel.cunha@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Mafalda Ramos","Coordenadora","http://mobile.aeist.pt/dAEISTpics/2015/gefe/mafaldaramos.png","mafalda.ramos@aeist.pt"));
+	        p5.addPessoa(new Pessoa("João Dionísio","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/gefe/joaodionisio.jpg","joao.dionisio@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Constança Barroso","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/gefe/constancabarroso.jpg","constanca.barroso@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Duarte Soares", "Vogal", "http://mobile.aeist.pt/dAEISTpics/2015/gefe/duartesoares.jpg", "duarte.soares@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Francisco Agostinho","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/gefe/franciscoagostinho.jpg","francisco.agostinho@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Filipa Dias","Colaboradora","http://mobile.aeist.pt/dAEISTpics/2015/gefe/filipadias.jpg","filipa.dias@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Andrei Negara", "Colaborador", "http://mobile.aeist.pt/dAEISTpics/2015/gefe/andreinegara.jpg", "andrei.negara@aeist.pt"));
+	        p5.addPessoa(new Pessoa("Miguel Cunha","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/gefe/miguelcunha.jpg","miguel.cunha@aeist.pt"));
 	        pelouroList.add(p5);
 	        
 	        PelouroContainer p8 = new PelouroContainer("Política Educativa");
-	        p8.addPessoa(new Pessoa("Eunice Afonso","Coordenadora","http://mobile.aeist.pt/dAEISTpics/pe/euniceafonso.jpg","eunice.afonso@aeist.pt"));
-	        p8.addPessoa(new Pessoa("Marta Santos","Vogal","http://mobile.aeist.pt/dAEISTpics/pe/martasantos.jpg","marta.santos@aeist.pt"));
+	        p8.addPessoa(new Pessoa("João Catarino","Coordenador","http://mobile.aeist.pt/dAEISTpics/2015/pe/joaocatarino.jpg","joao.catarino@aeist.pt"));
+	        p8.addPessoa(new Pessoa("Luís Matias","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/pe/luismatias.jpg","luis.matias@aeist.pt"));
+	        p8.addPessoa(new Pessoa("Pedro Reganha","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/tagus/pedroreganha.jpg","pedro.reganha@aeist.pt"));
 	        pelouroList.add(p8);
 	        
-	        PelouroContainer p6 = new PelouroContainer("Recreativa");
-	        p6.addPessoa(new Pessoa("Filipa East","Coordenadora","http://mobile.aeist.pt/dAEISTpics/recreativa/filipaeast.jpg","filipa.east@aeist.pt"));
-	        p6.addPessoa(new Pessoa("Ricardo Cardão","Vogal","http://mobile.aeist.pt/dAEISTpics/recreativa/ricardocardao.jpg","ricardo.cardao@aeist.pt"));
-	        p6.addPessoa(new Pessoa("Valdo Lopes","Vogal","http://mobile.aeist.pt/dAEISTpics/recreativa/valdolopes.jpg","valdo.lopes@aeist.pt"));
-	        p6.addPessoa(new Pessoa("António Morgado","Vogal","http://mobile.aeist.pt/dAEISTpics/recreativa/antoniomorgado.jpg","antonio.morgado@aeist.pt"));
-	        p6.addPessoa(new Pessoa("Manuel Cardoso","Colaborador","http://mobile.aeist.pt/dAEISTpics/recreativa/manuelcardoso.jpg","manuel.cardoso@aeist.pt"));
-	        p6.addPessoa(new Pessoa("André Paluch","Colaborador","http://mobile.aeist.pt/dAEISTpics/recreativa/andrepaluch.jpg","andre.paluch@aeist.pt"));
-	        p6.addPessoa(new Pessoa("João Carvalho","Colaborador","http://mobile.aeist.pt/dAEISTpics/recreativa/joaocarvalho.jpg","joao.carvalho@aeist.pt"));
+	        PelouroContainer p6 = new PelouroContainer("Recreativa e Cultural");
+	        p6.addPessoa(new Pessoa("Carlos Costa","Coordenador","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/carloscosta.png","carlos.costa@aeist.pt"));
+	        p6.addPessoa(new Pessoa("Luís Prior","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/luisprior.jpg","luis.prior@aeist.pt"));
+	        p6.addPessoa(new Pessoa("Helena Martinho","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/helenamartinho.jpg","helena.martinho@aeist.pt"));
+	        p6.addPessoa(new Pessoa("Artur Esteves","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/arturesteves.jpg","artur.esteves@aeist.pt"));
+	        p6.addPessoa(new Pessoa("Filipe Afonso","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/filipeafonso.jpg","filipe.afonso@aeist.pt"));
+	        p6.addPessoa(new Pessoa("João Lobo","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/joaolobo.jpg","joao.lobo@aeist.pt"));
+	        p6.addPessoa(new Pessoa("Guilherme Lopes","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/guilhermelopes.jpg","guilherme.lopes@aeist.pt"));
+	        p6.addPessoa(new Pessoa("Mafalda Toscano","Colaboradora","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/mafaldatoscano.jpg","mafalda.toscano@aeist.pt"));
+	        p6.addPessoa(new Pessoa("Patrícia Marques", "Colaboradora", "http://mobile.aeist.pt/dAEISTpics/2015/recreativa/patriciamarques.jpg", "patricia.marques@aeist.pt"));
+	        p6.addPessoa(new Pessoa("João Cabo","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/joaocabo.jpg","joao.cabo@aeist.pt"));
+	        p6.addPessoa(new Pessoa("João Pedro Carvalho","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/joaocarvalho.jpg","joao.carvalho@aeist.pt"));
+	        p6.addPessoa(new Pessoa("Luís Freixinho","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/luisfreixinho.jpg","luis.freixinho@aeist.pt"));
+	        p6.addPessoa(new Pessoa("João Santos","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/recreativa/joaosantos.jpg","joao.santos@aeist.pt"));
 	        pelouroList.add(p6);
+
 	        
-	        PelouroContainer p7 = new PelouroContainer("Cultural");
-	        p7.addPessoa(new Pessoa("Stephano Pugliese","Coordenador","http://mobile.aeist.pt/dAEISTpics/cultural/stephanopugliese.jpg","stephano.pugliese@aeist.pt"));
-	        p7.addPessoa(new Pessoa("António Fitas","Vogal","http://mobile.aeist.pt/dAEISTpics/cultural/antoniofitas.jpg","antonio.fitas@aeist.pt"));
-	        p7.addPessoa(new Pessoa("Valdo Lopes","Vogal","http://mobile.aeist.pt/dAEISTpics/recreativa/valdolopes.jpg","valdo.lopes@aeist.pt"));
-	        p7.addPessoa(new Pessoa("Paloma Gonçalves","Colaboradora","http://mobile.aeist.pt/dAEISTpics/cultural/palomagoncalves.jpg","paloma.goncalves@aeist.pt"));
-	        pelouroList.add(p7);
-	        
-	        PelouroContainer p9 = new PelouroContainer("Relações Internas e Associados");
-	        p9.addPessoa(new Pessoa("Francisca Rey","Coordenadora","http://mobile.aeist.pt/dAEISTpics/ria/franciscarey.jpg","francisca.rey@aeist.pt"));
-	        p9.addPessoa(new Pessoa("João Sabino","Vogal","http://mobile.aeist.pt/dAEISTpics/ria/joaosabino.jpg","joao.sabino@aeist.pt"));
-	        p9.addPessoa(new Pessoa("Edgar Ramalho","Colaborador","","edgar.ramalho@aeist.pt"));
-	        p9.addPessoa(new Pessoa("André Costa","Colaborador","http://mobile.aeist.pt/dAEISTpics/ria/andrecosta.jpg","andre.costa@aeist.pt"));
-	        p9.addPessoa(new Pessoa("Bernardo Caldeira","Colaborador","","bernardo.caldeira@aeist.pt"));
-	        pelouroList.add(p9);
+	        PelouroContainer p12 = new PelouroContainer("Relações Internas e Associados");
+	        p12.addPessoa(new Pessoa("Pedro Sousa","Coordenador","http://mobile.aeist.pt/dAEISTpics/2015/ria/pedrosousa.png","pedro.sousa@aeist.pt"));
+	        p12.addPessoa(new Pessoa("João Francisco Silva","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/ria/joaosilva.jpg","joao.f.silva@aeist.pt"));
+	        p12.addPessoa(new Pessoa("Tiago Dias","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/ria/tiagodias.jpg","tiago.dias@aeist.pt"));
+	        p12.addPessoa(new Pessoa("Tomás Jacob","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/ria/tomasjacob.jpg","tomas.jacob@aeist.pt"));
+	        p12.addPessoa(new Pessoa("Filipe Soares","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/ria/filipesoares.jpg","filipe.soares@aeist.pt"));
+	        pelouroList.add(p12);
 	        
 	        PelouroContainer p10 = new PelouroContainer("Relações Externas");
-	        p10.addPessoa(new Pessoa("Inês Henriques","Coordenadora","http://mobile.aeist.pt/dAEISTpics/re/ineshenriques.jpg","ines.henriques@aeist.pt"));
-	        p10.addPessoa(new Pessoa("Danise Caetano","Colaboradora","http://mobile.aeist.pt/dAEISTpics/re/danisecaetano.jpg","danise.caetano@aeist.pt"));
+	        p10.addPessoa(new Pessoa("Gustavo Carita","Coordenador","http://mobile.aeist.pt/dAEISTpics/2015/re/gustavocarita.png","gustavo.carita@aeist.pt"));
+	        p10.addPessoa(new Pessoa("João Morgado","Vogal","http://mobile.aeist.pt/dAEISTpics/2015/re/joaomorgado.jpg","joao.morgado@aeist.pt"));
+	        p10.addPessoa(new Pessoa("Pedro Vieira","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/re/pedrovieira.jpg","pedro.vieira@aeist.pt"));
+	        p10.addPessoa(new Pessoa("Sara Cunha","Colaboradora","http://mobile.aeist.pt/dAEISTpics/2015/re/saracunha.jpg","sara.cunha@aeist.pt"));
+	        p10.addPessoa(new Pessoa("João Tomázio","Colaborador","http://mobile.aeist.pt/dAEISTpics/2015/re/joaotomazio.jpg","joao.tomazio@aeist.pt"));
 	        pelouroList.add(p10);
 	        
 	        PelouroContainer p11 = new PelouroContainer("Taguspark");
-	        p11.addPessoa(new Pessoa("Pedro Reganha","Coordenador","","pedro.reganha@aeist.pt"));
+	        p11.addPessoa(new Pessoa("Pedro Reganha","Coordenador","http://mobile.aeist.pt/dAEISTpics/2015/tagus/pedroreganha.jpg","pedro.reganha@aeist.pt"));
 	        pelouroList.add(p11);
 	        
 	        
