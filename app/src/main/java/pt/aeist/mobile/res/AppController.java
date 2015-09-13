@@ -30,6 +30,8 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 
 public class AppController extends Application {
 
@@ -200,5 +202,21 @@ public class AppController extends Application {
 
 	public void setAppStarted(boolean appStarted) {
 		this.appStarted = appStarted;
+	}
+
+
+	private Tracker mTracker;
+
+	/**
+	 * Gets the default {@link Tracker} for this {@link Application}.
+	 * @return tracker
+	 */
+	synchronized public Tracker getDefaultTracker() {
+		if (mTracker == null) {
+			GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+			// To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
+			mTracker = analytics.newTracker(R.xml.global_tracker);
+		}
+		return mTracker;
 	}
 }

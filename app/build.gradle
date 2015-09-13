@@ -9,6 +9,7 @@ android {
         applicationId "pt.aeist.mobile"
         minSdkVersion 9
         targetSdkVersion 22
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -24,4 +25,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:support-v4:22.2.0'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
+    compile 'com.google.android.gms:play-services-analytics:7.8.0'
 }

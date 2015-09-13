@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/pre-dexed/release/classes-642425f88dcc3722e9ada6a6ad18e968f289574b.jar" />
+    </item>
+    <item
         jar="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="23.0.0"
@@ -16,18 +23,18 @@
         <dex dex="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/pre-dexed/debug/classes-803aed1f0a4c08b37362429d9f1a7f7fed14b167.jar" />
     </item>
     <item
-        jar="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jar="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.3.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/pre-dexed/release/classes-642425f88dcc3722e9ada6a6ad18e968f289574b.jar" />
+        sha1="9c9dea9e85aceb09d95df5e6f7bc8a43fc286068">
+        <dex dex="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/pre-dexed/debug/classes-f8d8fce0baa35e3e446c4186dffbc9fbde09c4f9.jar" />
     </item>
     <item
-        jar="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jar="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.8.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/pre-dexed/release/classes-0d0ff5df8ef160995f25bc02a5114c1f2407fc70.jar" />
+        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
+        <dex dex="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/pre-dexed/debug/classes-716d4b69ddf33e184cf1b912ecb392e39dc3f8ea.jar" />
     </item>
     <item
         jar="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library-aar/1.0.0/jars/classes.jar"
@@ -44,11 +51,11 @@
         <dex dex="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/pre-dexed/release/support-annotations-22.2.0-e63cc3b518cafeb23c36366cc9851abf4b432f02.jar" />
     </item>
     <item
-        jar="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.8.0/jars/classes.jar"
+        jar="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
-        <dex dex="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/pre-dexed/debug/classes-716d4b69ddf33e184cf1b912ecb392e39dc3f8ea.jar" />
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/carloscorreia/Documents/work/AEIST/AEISTMobile/app/build/intermediates/pre-dexed/release/classes-0d0ff5df8ef160995f25bc02a5114c1f2407fc70.jar" />
     </item>
 
 </items>

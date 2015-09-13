@@ -4,13 +4,11 @@ package pt.aeist.mobile;
 
 import pt.aeist.mobile.res.AppController;
 import pt.aeist.mobile.res.TabsPagerAdapter;
-import pt.aeist.mobile.res.AppController.CheckConnectivity;
 import pt.aeist.mobile.services.QuickstartPreferences;
 import pt.aeist.mobile.services.RegistrationIntentService;
 import pt.aeist.mobile.servicos.DespFrag;
 import pt.aeist.mobile.servicos.RecFrag;
 import pt.aeist.mobile.servicos.SFFrag;
-import pt.aeist.mobile.servicos.ServFrag;
 
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -32,9 +30,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
@@ -54,6 +52,7 @@ public class ActInicio extends ActionBarActivity implements
 	private boolean toBbq = false;
 	private BroadcastReceiver mRegistrationBroadcastReceiver;
     private ProgressDialog pDialog;
+	private Tracker mTracker;
 
 
 	public static synchronized ActInicio getInstance() {
@@ -128,6 +127,9 @@ public class ActInicio extends ActionBarActivity implements
 		AppController.getInstance().setAppStarted(true);
 		setContentView(R.layout.activity_act_inicio);
 
+		// Obtain the shared Tracker instance.
+		mTracker = AppController.getInstance().getDefaultTracker();
+
 		mRegistrationBroadcastReceiver = new BroadcastReceiver() {
 			@Override
 			public void onReceive(Context context, Intent intent) {
@@ -175,6 +177,22 @@ public class ActInicio extends ActionBarActivity implements
 			 
 	            @Override
 	            public void onPageSelected(int position) {
+					String name = "";
+					switch(position) {
+						case 0:
+							name = "Eventos";
+							break;
+						case 1:
+							name = "Servicos";
+							break;
+						case 2:
+							name = "Churrascos";
+							break;
+
+					}
+					Log.i(TAG, "Setting screen name: " + name);
+					mTracker.setScreenName("Image~" + name);
+					mTracker.send(new HitBuilders.ScreenViewBuilder().build());
 	                // on changing the page
 	                // make respected tab selected
 	                actionBar.setSelectedNavigationItem(position);
